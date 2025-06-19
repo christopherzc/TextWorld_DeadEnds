@@ -251,6 +251,7 @@ class WorldRoom(WorldEntity):
         :param args: The args to pass to WorldEntity
         :param kwargs: The kwargs to pass to WorldEntity
         """
+        self.i7_custom_code = kwargs.pop('i7_custom_code', None)
         super().__init__(*args, **kwargs)
         self.exits = {}
         for d in DIRECTIONS:
@@ -437,7 +438,7 @@ class GameMaker:
         return self.new(type='r', name=name, desc=desc)
 
     def new(self, type: str, name: Optional[str] = None,
-            desc: Optional[str] = None) -> Union[WorldEntity, WorldRoom]:
+            desc: Optional[str] = None, i7_custom_code: Optional[str] = None) -> Union[WorldEntity, WorldRoom]:
         """ Creates new entity given its type.
 
         Args:
@@ -458,6 +459,7 @@ class GameMaker:
         var = Variable(var_id, type)
         if type == "r":
             entity = WorldRoom(var, name, desc)
+            entity.i7_custom_code = i7_custom_code
             self.rooms.append(entity)
         else:
             entity = WorldEntity(var, name, desc, kb=self._kb)
