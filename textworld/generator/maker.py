@@ -425,12 +425,13 @@ class GameMaker:
         return path.door
 
     def new_room(self, name: Optional[str] = None,
-                 desc: Optional[str] = None) -> WorldRoom:
+                 desc: Optional[str] = None, i7_custom_code: Optional[str] = None) -> WorldRoom:
         """ Create new room entity.
 
         Args:
             name: The name of the room.
             desc: The description of the room.
+            i7_custom_code: Inform7 logic to be injected for this room.
 
         Returns:
             The newly created room entity.
@@ -445,6 +446,7 @@ class GameMaker:
             type: The type of the entity.
             name: The name of the entity.
             desc: The description of the entity.
+            i7_custom_code: Inform7 logic to be injected for this room. Only for rooms
 
         Returns:
             The newly created entity.
