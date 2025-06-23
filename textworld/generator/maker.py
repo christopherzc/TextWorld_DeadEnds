@@ -436,7 +436,7 @@ class GameMaker:
         Returns:
             The newly created room entity.
         """
-        return self.new(type='r', name=name, desc=desc)
+        return self.new(type='r', name=name, desc=desc, i7_custom_code=i7_custom_code)
 
     def new(self, type: str, name: Optional[str] = None,
             desc: Optional[str] = None, i7_custom_code: Optional[str] = None) -> Union[WorldEntity, WorldRoom]:
