@@ -983,7 +983,7 @@ class Inform7Game:
             source = re.sub("(^ *)    ", r"\1\t", source, flags=re.MULTILINE)
             if source == last:
                 break
-
+        print(source)
         return source
 
 
