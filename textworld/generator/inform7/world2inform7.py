@@ -194,6 +194,7 @@ class Inform7Game:
                 print(room.i7_custom_code)
             except:
                 print("No custom code found")
+                print(room_name)
             if hasattr(room, "i7_custom_code") and room.i7_custom_code:
                 source += "\n" + room.i7_custom_code + "\n"
 
