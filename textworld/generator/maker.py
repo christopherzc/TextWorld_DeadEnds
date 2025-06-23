@@ -464,6 +464,7 @@ class GameMaker:
             entity = WorldRoom(var, name, desc)
             entity.i7_custom_code = i7_custom_code
             self.rooms.append(entity)
+            print("Entity code:", entity.i7_custom_code)
         else:
             entity = WorldEntity(var, name, desc, kb=self._kb)
 
