@@ -211,7 +211,7 @@ def make_game(options: GameOptions) -> Game:
     return game
 
 
-def compile_game(game: Game, options: Optional[GameOptions] = None):
+def compile_game(game: Game, custom_code: str, options: Optional[GameOptions] = None):
     """
     Compile a game.
 
@@ -235,7 +235,7 @@ def compile_game(game: Game, options: Optional[GameOptions] = None):
     if not ext:
         ext = options.file_ext  # Add default extension, if needed.
 
-    source = generate_inform7_source(game)
+    source = generate_inform7_source(game, custom_code)
 
     maybe_mkdir(folder)
     game_json = pjoin(folder, filename + ".json")

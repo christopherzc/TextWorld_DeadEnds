@@ -56,11 +56,14 @@ def split_string(string, name, cutoff=200):
 class Inform7Game:
     VERSION = 1
 
-    def __init__(self, game: Game) -> None:
+    def __init__(self, game: Game, custom_code: str) -> None:
         self.game = game
         self.entity_infos = self.game.infos
         self.kb = self.game.kb
         self.use_i7_description = False  # XXX: should it be removed?
+
+        # Custom inform7 scripts for in-game mechanics.
+        self.custom_code = custom_code
 
     def gen_source_for_map(self, src_room: WorldRoom) -> str:
         source = ""
@@ -315,6 +318,11 @@ class Inform7Game:
         source += "\n"
         source += self.gen_source_for_objects(self.game.world.objects)
         source += "\n\n"
+
+        # Inject custom code:
+        source += "\n"
+        source += self.custom_code
+        source += "\n"
 
         # Place the player.
         source += "The player is in {}.\n\n".format(self.entity_infos[self.game.world.player_room.id].id)
@@ -992,8 +1000,8 @@ class Inform7Game:
         return source
 
 
-def generate_inform7_source(game: Game, seed: int = 1234, use_i7_description: bool = False) -> str:
-    inform7 = Inform7Game(game)
+def generate_inform7_source(game: Game, custom_code: str, seed: int = 1234, use_i7_description: bool = False) -> str:
+    inform7 = Inform7Game(game, custom_code)
     inform7.use_i7_description = use_i7_description
     return inform7.gen_source(seed=seed)
 

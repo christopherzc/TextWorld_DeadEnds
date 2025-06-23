@@ -812,7 +812,7 @@ class GameMaker:
         self._game = game  # Keep track of previous build.
         return self._game
 
-    def compile(self, path: str) -> str:
+    def compile(self, path: str, custom_code: str) -> str:
         """
         Compile this game.
 
@@ -830,7 +830,7 @@ class GameMaker:
         options = textworld.GameOptions()
         options.path = path
         options.force_recompile = True
-        game_file = textworld.generator.compile_game(self._working_game, options)
+        game_file = textworld.generator.compile_game(self._working_game, custom_code, options)
         return game_file
 
     def __contains__(self, entity) -> bool:
