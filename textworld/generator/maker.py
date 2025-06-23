@@ -459,6 +459,7 @@ class GameMaker:
             var_id = get_new(type, self._types_counts)
 
         var = Variable(var_id, type)
+        print("Type:", type)
         if type == "r":
             entity = WorldRoom(var, name, desc)
             entity.i7_custom_code = i7_custom_code
