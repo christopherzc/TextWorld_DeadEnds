@@ -788,7 +788,6 @@ class GameMaker:
             self.validate()  # Validate the state of the world.
 
         world = World.from_facts(self.facts, kb=self._kb)
-        print(world.rooms())
         game = Game(world, quests=self.quests)
 
         # Keep same objectiveif one was provided/generated.
