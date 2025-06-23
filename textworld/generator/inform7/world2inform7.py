@@ -56,7 +56,7 @@ def split_string(string, name, cutoff=200):
 class Inform7Game:
     VERSION = 1
 
-    def __init__(self, game: Game, custom_code: str) -> None:
+    def __init__(self, game: Game, custom_code: str = "") -> None:
         self.game = game
         self.entity_infos = self.game.infos
         self.kb = self.game.kb
