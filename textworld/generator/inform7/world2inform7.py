@@ -190,6 +190,10 @@ class Inform7Game:
 
             # List the room's attributes.
             source += self.gen_source_for_map(room)
+            try:
+                print(room.i7_custom_code)
+            except:
+                print("No custom code found)
             if hasattr(room, "i7_custom_code") and room.i7_custom_code:
                 source += "\n" + room.i7_custom_code + "\n"
 
