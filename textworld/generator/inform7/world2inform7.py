@@ -193,11 +193,6 @@ class Inform7Game:
 
             # List the room's attributes.
             source += self.gen_source_for_map(room)
-            try:
-                print(room.i7_custom_code)
-            except:
-                print("No custom code found")
-                print(room_name)
             if hasattr(room, "i7_custom_code") and room.i7_custom_code:
                 source += "\n" + room.i7_custom_code + "\n"
 
@@ -284,7 +279,7 @@ class Inform7Game:
 
     def gen_source(self, seed: int = 1234) -> str:
         source = ""
-        source += "Use MAX_STATIC_DATA of 500000.\n"  # To generate game with 300+ locations.
+        source += "Use MAX_STATIC_DATA of 5000000.\n"  # To generate game with 300+ locations.
         source += "When play begins, seed the random-number generator with {}.\n\n".format(seed)
         source += self.define_inform7_kinds()
         # Mention that rooms have a special text attribute called 'internal name'.
@@ -996,7 +991,6 @@ class Inform7Game:
             source = re.sub("(^ *)    ", r"\1\t", source, flags=re.MULTILINE)
             if source == last:
                 break
-        print(source)
         return source
 
 

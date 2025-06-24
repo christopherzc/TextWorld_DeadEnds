@@ -1,0 +1,22 @@
+{
+    "Dying": [
+        "shining cresent",
+        "shining circle",
+        "yellow circle",
+        "white cone",
+        "green box"
+    ],
+    "Dead": [
+        "strange star",
+        "weird dot",
+        "orange box",
+        "white cresent",
+        "weird star",
+        "gold cone",
+        "blue cone",
+        "red dot"
+    ],
+    "Life": [
+        "black dot"
+    ]
+}

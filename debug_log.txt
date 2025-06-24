@@ -1,0 +1,96 @@
+{frozenset({(4, 2), (4, 3)}), frozenset({(2, 3), (2, 2)}), frozenset({(5, 3), (5, 2)}), frozenset({(3, 2), (3, 3)})}
+Player set in room purple spiral
+['strange star[X]    ', 'weird dot[X]       ', 'orange box[X]      ', 'white cresent[X]   ', 'weird star[X]      ', 'gold cone[X]       ', 'blue cone[X]       ', 'red dot[X]         ']
+['yellow dot         ', 'purple star        ', 'orange circle      ', 'shining cresent[D] ', 'shining circle[D]  ', 'yellow circle[D]   ', 'white cone[D]      ', 'green box[D]       ']
+['orange cresent     ', 'strange dot        ', 'purple cone[W]     ', 'yellow box         ', 'yellow line        ', 'black rhombus      ', 'yellow cone        ', 'shining box        ']
+['black dot[G]       ', 'white rhombus      ', 'yellow square[W]   ', 'strange circle     ', 'strange cresent    ', 'orange cone        ', 'weird box          ', 'orange square      ']
+['strange line       ', 'weird cone         ', 'purple cresent[W]  ', 'gold dot           ', 'blue circle        ', 'orange star        ', 'black cresent      ', 'shining line       ']
+['shining spiral     ', 'green square       ', 'black box[W]       ', 'strange box        ', 'red cresent        ', 'white dot          ', 'blue triangle      ', 'green rhombus      ']
+['purple rhombus     ', 'strange triangle   ', 'black cone         ', 'orange triangle    ', 'gold rhombus       ', 'gold circle        ', 'strange rhombus    ', 'purple spiral[A]   ']
+['gold square        ', 'weird line         ', 'white line         ', 'green line         ', 'shining dot        ', 'weird square       ', 'purple triangle    ', 'orange dot         ']
+GAME START:
+
+
+
+
+
+
+
+-= Purple Spiral =-
+You've just sauntered into a purple spiral. You try to gain information on your surroundings by using a technique you call "looking."
+
+
+
+There is an unblocked exit to the north. There is an unguarded exit to the south. There is an exit to the west. Don't worry, it is unblocked.
+
+Fate intervenes! You find yourself moving north instead.
+
+
+-= Shining Box =-
+You are in a shining box. An usual kind of place.
+
+
+
+There is an unblocked exit to the north. There is an exit to the south. Don't worry, it is unguarded. There is an exit to the west. Don't worry, it is unblocked.
+
+
+
+
+['go east', 'go north', 'go south', 'go west', 'inventory', 'look']
+
+___
+
+
+-= Yellow Cone =-
+Well, here we are in the yellow cone.
+
+
+
+There is an exit to the east. Don't worry, it is unblocked. You don't like doors? Why not try going north, that entranceway is unguarded. There is an exit to the south. Don't worry, it is unguarded. You don't like doors? Why not try going west, that entranceway is unguarded.
+
+
+
+['go east', 'go north', 'go south', 'go west', 'inventory', 'look']
+
+___
+
+
+-= Black Rhombus =-
+You find yourself in a black rhombus. A normal kind of place. Let's see what's in here.
+
+
+
+There is an unblocked exit to the east. There is an exit to the north. Don't worry, it is unblocked. There is an unblocked exit to the south. There is an unguarded exit to the west.
+
+
+
+['go east', 'go north', 'go south', 'go west', 'inventory', 'look']
+
+___
+
+Fate intervenes! You find yourself moving north instead.
+
+
+-= Gold Cone =-
+You are in a gold cone. A standard one.
+
+
+
+There is an unblocked exit to the east. You don't like doors? Why not try going south, that entranceway is unblocked. There is an unguarded exit to the west.
+
+
+
+
+
+                               *** The End ***
+
+You scored 0 out of a possible 0, in 4 turns.
+
+
+Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?
+> 
+['go east', 'go north', 'go south', 'go west', 'inventory', 'look']
+
+___
+
+Done, last move: go west, final score: 0
