@@ -1,0 +1,18 @@
+{"time":"2025-06-25T21:50:52.547079819Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/wandb/run-20250625_215052-rzvee3v1/logs/debug-core.log"}
+{"time":"2025-06-25T21:50:52.935846853Z","level":"INFO","msg":"stream: created new stream","id":"rzvee3v1"}
+{"time":"2025-06-25T21:50:52.93598989Z","level":"INFO","msg":"stream: started","id":"rzvee3v1"}
+{"time":"2025-06-25T21:50:52.936077924Z","level":"INFO","msg":"sender: started","stream_id":"rzvee3v1"}
+{"time":"2025-06-25T21:50:52.936024533Z","level":"INFO","msg":"writer: Do: started","stream_id":"rzvee3v1"}
+{"time":"2025-06-25T21:50:52.936064154Z","level":"INFO","msg":"handler: started","stream_id":"rzvee3v1"}
+{"time":"2025-06-25T21:50:53.184195727Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-25T21:51:08.863740307Z","level":"WARN","msg":"tensorboard: no root directory","error":"timed out after 10s"}
+{"time":"2025-06-25T21:51:08.864143942Z","level":"INFO","msg":"tensorboard: tracking new log directory","rootDir":{},"logDir":"LocalOrCloudPath(LocalPath=\"/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/tb_logs/PPO_1\")","namespace":""}
+{"time":"2025-06-25T21:51:08.865274895Z","level":"INFO","msg":"tensorboard: saving file","fileLocation":"/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/tb_logs/PPO_1/events.out.tfevents.1750888258.fs-mbz-login-001.3422964.0","runPath":"tb_logs/PPO_1/events.out.tfevents.1750888258.fs-mbz-login-001.3422964.0"}
+{"time":"2025-06-25T21:56:32.58447226Z","level":"INFO","msg":"stream: closing","id":"rzvee3v1"}
+{"time":"2025-06-25T21:56:32.584533383Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-25T21:56:32.584983779Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-25T21:56:33.211491814Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-25T21:56:33.557580714Z","level":"INFO","msg":"handler: closed","stream_id":"rzvee3v1"}
+{"time":"2025-06-25T21:56:33.557679155Z","level":"INFO","msg":"writer: Close: closed","stream_id":"rzvee3v1"}
+{"time":"2025-06-25T21:56:33.557724403Z","level":"INFO","msg":"sender: closed","stream_id":"rzvee3v1"}
+{"time":"2025-06-25T21:56:33.558454596Z","level":"INFO","msg":"stream: closed","id":"rzvee3v1"}

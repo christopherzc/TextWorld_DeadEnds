@@ -1,0 +1,252 @@
+Room gold square is a dead room
+Room gold circle is a dead room
+Room weird cresent is a dead room
+Room green square is a dead room
+Room strange rhombus is a dead room
+Room white star is a dead room
+Room weird cone is a dead room
+Room white cresent is a dead room
+No special mechanics for room weird square at (1, 0)
+No special mechanics for room shining rhombus at (1, 1)
+No special mechanics for room blue box at (1, 2)
+Room yellow line is a dying room
+Room purple star is a dying room
+Room blue star is a dying room
+Room weird box is a dying room
+Room purple square is a dying room
+Room shining box is a life room
+No special mechanics for room yellow cone at (2, 1)
+No special mechanics for room red triangle at (2, 2)
+No special mechanics for room orange circle at (2, 3)
+No special mechanics for room black line at (2, 4)
+No special mechanics for room red square at (2, 5)
+No special mechanics for room strange circle at (2, 6)
+No special mechanics for room shining cone at (2, 7)
+No special mechanics for room red box at (3, 0)
+No special mechanics for room blue dot at (3, 1)
+No special mechanics for room blue cone at (3, 2)
+No special mechanics for room black rhombus at (3, 3)
+No special mechanics for room purple cone at (3, 4)
+No special mechanics for room yellow spiral at (3, 5)
+No special mechanics for room weird rhombus at (3, 6)
+No special mechanics for room purple triangle at (3, 7)
+No special mechanics for room strange line at (4, 0)
+No special mechanics for room shining cresent at (4, 1)
+No special mechanics for room red cone at (4, 2)
+No special mechanics for room gold rhombus at (4, 3)
+No special mechanics for room red dot at (4, 4)
+No special mechanics for room orange spiral at (4, 5)
+No special mechanics for room blue cresent at (4, 6)
+No special mechanics for room strange square at (4, 7)
+No special mechanics for room gold line at (5, 0)
+No special mechanics for room green line at (5, 1)
+No special mechanics for room orange dot at (5, 2)
+No special mechanics for room strange cresent at (5, 3)
+No special mechanics for room black square at (5, 4)
+No special mechanics for room white line at (5, 5)
+No special mechanics for room yellow star at (5, 6)
+No special mechanics for room yellow circle at (5, 7)
+No special mechanics for room strange triangle at (6, 0)
+No special mechanics for room red cresent at (6, 1)
+No special mechanics for room orange box at (6, 2)
+No special mechanics for room white rhombus at (6, 3)
+No special mechanics for room black triangle at (6, 4)
+No special mechanics for room yellow square at (6, 5)
+No special mechanics for room black spiral at (6, 6)
+No special mechanics for room orange square at (6, 7)
+No special mechanics for room strange star at (7, 0)
+No special mechanics for room weird circle at (7, 1)
+No special mechanics for room black star at (7, 2)
+No special mechanics for room strange spiral at (7, 3)
+No special mechanics for room green star at (7, 4)
+No special mechanics for room shining spiral at (7, 5)
+No special mechanics for room gold cone at (7, 6)
+No special mechanics for room purple line at (7, 7)
+gold square is north of weird square
+gold square is west of gold circle
+gold circle is north of shining rhombus
+gold circle is west of weird cresent
+weird cresent is north of blue box
+weird cresent is west of green square
+green square is north of yellow line
+green square is west of strange rhombus
+strange rhombus is north of purple star
+strange rhombus is west of white star
+white star is north of blue star
+white star is west of weird cone
+weird cone is north of weird box
+weird cone is west of white cresent
+white cresent is north of purple square
+weird square is north of shining box
+weird square is west of shining rhombus
+shining rhombus is north of yellow cone
+shining rhombus is west of blue box
+blue box is north of red triangle
+blue box is west of yellow line
+yellow line is north of orange circle
+yellow line is west of purple star
+purple star is north of black line
+purple star is west of blue star
+blue star is north of red square
+blue star is west of weird box
+weird box is north of strange circle
+weird box is west of purple square
+purple square is north of shining cone
+shining box is north of red box
+shining box is west of yellow cone
+yellow cone is north of blue dot
+yellow cone is west of red triangle
+red triangle is north of blue cone
+orange circle is north of black rhombus
+orange circle is west of black line
+black line is north of purple cone
+black line is west of red square
+red square is north of yellow spiral
+red square is west of strange circle
+strange circle is north of weird rhombus
+strange circle is west of shining cone
+shining cone is north of purple triangle
+red box is north of strange line
+red box is west of blue dot
+blue dot is north of shining cresent
+blue dot is west of blue cone
+blue cone is north of red cone
+black rhombus is north of gold rhombus
+black rhombus is west of purple cone
+purple cone is north of red dot
+purple cone is west of yellow spiral
+yellow spiral is north of orange spiral
+yellow spiral is west of weird rhombus
+weird rhombus is north of blue cresent
+weird rhombus is west of purple triangle
+purple triangle is north of strange square
+strange line is north of gold line
+strange line is west of shining cresent
+shining cresent is north of green line
+shining cresent is west of red cone
+red cone is north of orange dot
+gold rhombus is north of strange cresent
+gold rhombus is west of red dot
+red dot is north of black square
+red dot is west of orange spiral
+orange spiral is north of white line
+orange spiral is west of blue cresent
+blue cresent is north of yellow star
+blue cresent is west of strange square
+strange square is north of yellow circle
+gold line is north of strange triangle
+gold line is west of green line
+green line is north of red cresent
+green line is west of orange dot
+orange dot is north of orange box
+strange cresent is north of white rhombus
+strange cresent is west of black square
+black square is north of black triangle
+black square is west of white line
+white line is north of yellow square
+white line is west of yellow star
+yellow star is north of black spiral
+yellow star is west of yellow circle
+yellow circle is north of orange square
+strange triangle is north of strange star
+strange triangle is west of red cresent
+red cresent is north of weird circle
+red cresent is west of orange box
+orange box is north of black star
+orange box is west of white rhombus
+white rhombus is north of strange spiral
+white rhombus is west of black triangle
+black triangle is north of green star
+black triangle is west of yellow square
+yellow square is north of shining spiral
+yellow square is west of black spiral
+black spiral is north of gold cone
+black spiral is west of orange square
+orange square is north of purple line
+strange star is west of weird circle
+weird circle is west of black star
+black star is west of strange spiral
+strange spiral is west of green star
+green star is west of shining spiral
+shining spiral is west of gold cone
+gold cone is west of purple line
+Player set in room strange square
+gold square is a dead room
+gold circle is a dead room
+weird cresent is a dead room
+green square is a dead room
+strange rhombus is a dead room
+white star is a dead room
+weird cone is a dead room
+white cresent is a dead room
+shining box is a life room
+['gold square[X]     ', 'gold circle[X]     ', 'weird cresent[X]   ', 'green square[X]    ', 'strange rhombus[X] ', 'white star[X]      ', 'weird cone[X]      ', 'white cresent[X]   ']
+['weird square       ', 'shining rhombus    ', 'blue box           ', 'yellow line[D]     ', 'purple star[D]     ', 'blue star[D]       ', 'weird box[D]       ', 'purple square[D]   ']
+['shining box[G]     ', 'yellow cone        ', 'red triangle[W]    ', 'orange circle      ', 'black line         ', 'red square         ', 'strange circle     ', 'shining cone       ']
+['red box            ', 'blue dot           ', 'blue cone[W]       ', 'black rhombus      ', 'purple cone        ', 'yellow spiral      ', 'weird rhombus      ', 'purple triangle    ']
+['strange line       ', 'shining cresent    ', 'red cone[W]        ', 'gold rhombus       ', 'red dot            ', 'orange spiral      ', 'blue cresent       ', 'strange square[A]  ']
+['gold line          ', 'green line         ', 'orange dot[W]      ', 'strange cresent    ', 'black square       ', 'white line         ', 'yellow star        ', 'yellow circle      ']
+['strange triangle   ', 'red cresent        ', 'orange box         ', 'white rhombus      ', 'black triangle     ', 'yellow square      ', 'black spiral       ', 'orange square      ']
+['strange star       ', 'weird circle       ', 'black star         ', 'strange spiral     ', 'green star         ', 'shining spiral     ', 'gold cone          ', 'purple line        ']
+Using cpu device
+Logging to ./tb_logs/PPO_1
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 48.1        |
+|    ep_rew_mean          | -0.05       |
+| time/                   |             |
+|    fps                  | 159         |
+|    iterations           | 10          |
+|    time_elapsed         | 128         |
+|    total_timesteps      | 20480       |
+| train/                  |             |
+|    approx_kl            | 0.005507455 |
+|    clip_fraction        | 0.0786      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -0.89       |
+|    explained_variance   | 0.0482      |
+|    learning_rate        | 0.0003      |
+|    loss                 | -0.0147     |
+|    n_updates            | 90          |
+|    policy_gradient_loss | -0.00431    |
+|    value_loss           | 0.0116      |
+-----------------------------------------
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 43          |
+|    ep_rew_mean          | 0.55        |
+| time/                   |             |
+|    fps                  | 160         |
+|    iterations           | 20          |
+|    time_elapsed         | 255         |
+|    total_timesteps      | 40960       |
+| train/                  |             |
+|    approx_kl            | 0.006897065 |
+|    clip_fraction        | 0.0907      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -0.796      |
+|    explained_variance   | 0.165       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0293      |
+|    n_updates            | 190         |
+|    policy_gradient_loss | -0.00406    |
+|    value_loss           | 0.0672      |
+-----------------------------------------
+Traceback (most recent call last):
+  File "/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/textworld/lifegate_generator/ppo_example.py", line 99, in <module>
+    model.learn(
+  File "/mnt/weka/home/christopher.cui/miniconda/envs/lifegate/lib/python3.12/site-packages/stable_baselines3/ppo/ppo.py", line 311, in learn
+    return super().learn(
+           ^^^^^^^^^^^^^^
+  File "/mnt/weka/home/christopher.cui/miniconda/envs/lifegate/lib/python3.12/site-packages/stable_baselines3/common/on_policy_algorithm.py", line 337, in learn
+    self.train()
+  File "/mnt/weka/home/christopher.cui/miniconda/envs/lifegate/lib/python3.12/site-packages/stable_baselines3/ppo/ppo.py", line 213, in train
+    values, log_prob, entropy = self.policy.evaluate_actions(rollout_data.observations, actions)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/weka/home/christopher.cui/miniconda/envs/lifegate/lib/python3.12/site-packages/stable_baselines3/common/policies.py", line 738, in evaluate_actions
+    log_prob = distribution.log_prob(actions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/weka/home/christopher.cui/miniconda/envs/lifegate/lib/python3.12/site-packages/stable_baselines3/common/distributions.py", line 291, in log_prob
+    def log_prob(self, actions: th.Tensor) -> th.Tensor:
+
+KeyboardInterrupt

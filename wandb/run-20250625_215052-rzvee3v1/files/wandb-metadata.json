@@ -1,0 +1,31 @@
+{
+  "os": "Linux-5.15.0-140-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.12.11",
+  "startedAt": "2025-06-25T21:50:52.542936Z",
+  "program": "/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/textworld/lifegate_generator/ppo_example.py",
+  "codePath": "textworld/lifegate_generator/ppo_example.py",
+  "git": {
+    "remote": "https://github.com/christopherzc/TextWorld_DeadEnds.git",
+    "commit": "cbdf6e2ada189878ffed6e39d6fe803723f52778"
+  },
+  "email": "czcui@ucsd.edu",
+  "root": "/mnt/weka/home/christopher.cui/TextWorld_DeadEnds",
+  "host": "fs-mbz-login-001",
+  "executable": "/mnt/weka/home/christopher.cui/miniconda/envs/lifegate/bin/python",
+  "codePathLocal": "textworld/lifegate_generator/ppo_example.py",
+  "cpu_count": 32,
+  "cpu_count_logical": 64,
+  "disk": {
+    "/": {
+      "total": "1065418129408",
+      "used": "359983390720"
+    }
+  },
+  "memory": {
+    "total": "270242201600"
+  },
+  "cpu": {
+    "count": 32,
+    "countLogical": 64
+  }
+}

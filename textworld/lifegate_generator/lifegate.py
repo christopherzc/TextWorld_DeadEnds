@@ -1,22 +1,29 @@
 import random
 import json
 from textworld import GameMaker
+from textworld.generator import World, Quest, Event
 
 
 colors_array = ['red', 'blue', 'yellow', 'orange', 'purple', 'green', 'black', 'white', 'gold', 'shining', 'weird', 'strange']
 shapes_array = ['square', 'box', 'circle', 'star', 'cresent', 'triangle', 'rhombus', 'dot', 'spiral', 'cone', 'line']
 
+
+# For determining the position of the dying zone:
+reverse_directions = {
+    "north": "south",
+    "south": "north",
+    "east": "west",
+    "west": "east"
+}
+# TODO: The file path where the game is saved is hard-coded right now. Need to make it a variable to be passed in.
+
 class LifeGateBuilder:
 
-  # For determining the position of the dying zone:
-  reverse_directions = {
-      "north": "south",
-      "south": "north",
-      "east": "west",
-      "west": "east"
-  }
-
-  def __init__(self, length = 8, wall_row = 4, wall_width = 3, wall_col_start = 2, life_gate_dir = 'north', death_gate_dir = 'east'):
+  def __init__(self, length = 8, wall_row = 4, wall_width = 3, wall_col_start = 2, 
+               life_gate_dir = 'north', death_gate_dir = 'east',
+               base_folder = "./", quests = []):
+    self.base_folder = base_folder
+    self.quests = quests
     self.length = length
     self.wall_row = wall_row
     self.wall_width = wall_width
@@ -37,37 +44,10 @@ class LifeGateBuilder:
     self.d_rows = []
     self.life_gate_loc = []
     self.d_cols = []
+    self.player_row = 0
+    self.player_col = 0
 
-    # TODO Add cases for when the death gate is to the south or north
-    # TODO Add cases for when the lifegate is to the east or west
-    # For now, always place the agent somewhere on the row opposite to the life gate
-    if self.death_gate_dir == 'east' and self.life_gate_dir == 'north':
-      self.d_rows += [i for i in range(wall_row, length)]
-      self.d_cols += [i for i in range(wall_col_start + wall_width, length - 1)]
-
-      self.dead_zone_locs += [(i, length - 1) for i in range(length)]
-      self.life_gate_loc.append((0, random.randint(1, length - 2)))
-
-      self.player_col = random.randint(0, int(self.length/2))
-      self.player_row = -1
-    elif death_gate_dir == 'west' and self.life_gate_dir == 'north':
-      self.d_rows += [i for i in range(wall_row, length)]
-      self.d_cols += [i for i in range(1, wall_col_start)]
-
-      self.dead_zone_locs += [(i, 0) for i in range(length)]
-      self.life_gate_loc.append((0, random.randint(1, length - 2)))
-
-      self.player_col = random.randint(int(self.length/2), length - 1)
-      self.player_row = -1
-    elif death_gate_dir == 'north' and self.life_gate_dir == 'east':
-      self.d_rows += [i for i in range(1, wall_row)]
-      self.d_cols += [i for i in range(wall_col_start, length)]
-
-      self.dead_zone_locs += [(0, i) for i in range(length)]
-      self.life_gate_loc.append((random.randint(1, length - 2), 0))
-
-      self.player_row = random.randint(int(self.length/2), length - 1)
-      self.player_col = -1
+    self.place_zones()
 
     self.dying_rooms = []
     for i in self.d_rows:
@@ -79,7 +59,11 @@ class LifeGateBuilder:
     self.life_rooms = self.life_gate_loc
 
     # Set a flag to prevent the custom mechanic from repeatedly triggering itself.
-    self.custom_code = "Fate-is-intervening is a truth state that varies. Fate-is-intervening is false."
+    self.custom_code = """
+activate-game-mechanics is a truth state that varies.
+Before reading a command:
+    now activate-game-mechanics is true.
+"""
 
 
   def make_game(self, game_name = 'lifegate_base', print_layout = False):
@@ -87,7 +71,6 @@ class LifeGateBuilder:
 
     # Frozen set for easier wall checking:
     wall_set = {frozenset([a, b]) for a, b in self.walls}
-    print(wall_set)
 
     # Keep track of established connections
     num_connections = 0
@@ -106,6 +89,7 @@ class LifeGateBuilder:
                     south_room = actual_rooms[j + 1][i]
                     try:
                       s_corridor = M.connect(room.south, south_room.north)
+                      # print(f'{room.name} is north of {south_room.name}')
                       num_connections += 1
                     except:
                       failed_connections += 1
@@ -119,6 +103,7 @@ class LifeGateBuilder:
                     try:
                       n_corridor = M.connect(room.north, north_room.south)
                       num_connections += 1
+                      # print(f'{room.name} is south of {north_room.name}')
                     except:
                       failed_connections += 1
 
@@ -131,6 +116,7 @@ class LifeGateBuilder:
                     try:
                       e_corridor = M.connect(room.east, east_room.west)
                       num_connections += 1
+                      # print(f'{room.name} is west of {east_room.name}')
                     except:
                       failed_connections += 1
 
@@ -143,31 +129,57 @@ class LifeGateBuilder:
                     try:
                       w_corridor = M.connect(room.west, west_room.east)
                       num_connections += 1
+                      # print(f'{room.name} is east of {west_room.name}')
                     except:
                       failed_connections += 1
 
     # Randomly set the player somewhere in the left corner (hard coded for now until we get stuff working)
     M.set_player(actual_rooms[self.player_row][self.player_col])
-    print(f'Player set in room {actual_rooms[self.player_row][self.player_col].name}')
+    # print(f'Player set in room {actual_rooms[self.player_row][self.player_col].name}')
 
-    M.compile(path = "./" + game_name, custom_code = self.custom_code)
+    # Need to make a cleaner function-based way of doing this but for now this is fine
+    M.quests = [self.generate_quests(M, actual_rooms)]
+    M.compile(path = self.base_folder + self.format_save_string(), custom_code = self.custom_code)
     self.generate_room_dict(taken_names, game_name)
     if print_layout:
-      self.pretty_print_map(taken_names)
+      self.pretty_print_map(actual_rooms)
 
-  def pretty_print_map(self, taken_names):
+    return self.base_folder, self.format_save_string()
+
+  def format_save_string(self):
+     # Default save string for game:
+     return f"lifegate_{self.length}x{self.length}_walls{self.wall_row}_{self.wall_width}_{self.wall_col_start}_{self.death_gate_dir}_{self.life_gate_dir}"
+
+  def generate_quests(self, M, actual_rooms):
+     # Use the specified dead and life rooms to create quests.
+    fail_events = []
+    win_events = []
+    for room_loc in self.dead_rooms:
+      #  print(f'{actual_rooms[room_loc[0]][room_loc[1]].name} is a dead room')
+       fail_events.append(Event(conditions={M.new_fact("at", M.player, actual_rooms[room_loc[0]][room_loc[1]])}))
+
+    for room_loc in self.life_rooms:
+      #  print(f'{actual_rooms[room_loc[0]][room_loc[1]].name} is a life room')
+       win_events.append(Event(conditions={M.new_fact("at", M.player, actual_rooms[room_loc[0]][room_loc[1]])}))
+
+    return Quest(win_events = win_events, fail_events = fail_events)
+       
+  def pretty_print_map(self, actual_rooms):
+    # Step 0: Flatten the 2d actual rooms list into a single list of rooms
+    room_names = [room.name for row in actual_rooms for room in row]
+
     # Step 1: Find max length for padding
-    max_length = max(len(name) for name in taken_names) + 3
+    max_length = max(len(room) for room in room_names) + 3
 
     # Step 2: Format names and organize into grid
     named_rooms_formatted = []
     named_rooms_formatted_unpadded = []
     rows = []
     raw_rows = []
-    for room in taken_names:
-        padded_name = room.ljust(max_length)
+    for room_name in room_names:
+        padded_name = room_name.ljust(max_length)
         rows.append(padded_name)
-        raw_rows.append(room)
+        raw_rows.append(room_name)
         if len(rows) == self.length:
             named_rooms_formatted.append(rows)
             rows = []
@@ -232,6 +244,7 @@ class LifeGateBuilder:
   def generate_rooms(self, GameMaker):
     taken_names = []
     actual_rooms = []
+    room_ids = [] # Sanity check: Make sure no room has more than 1 mechanic.
     for i in range(self.length):
       room_rows = []
       for j in range(self.length):
@@ -242,38 +255,46 @@ class LifeGateBuilder:
         # Get the room identifier and see if this works for inform7
         # room_name = room.id
         if (i, j) in self.dying_rooms:
+          # print(f'Room {room_name} is a dying room')
+          assert room.id not in room_ids, f"Room {room.id} already has a mechanic assigned to it"
+          room_ids.append(room.id)
           room_mechanic = f"""
-Instead of doing something when the player is in the {room.id} and fate-is-intervening is false:
+Instead of doing something when the player is in the {room.id} and activate-game-mechanics is true:
+    now activate-game-mechanics is false;
     let N be a random number from 1 to 100;
     if N > 40:
-        now fate-is-intervening is true;
         try going {self.death_gate_dir};
-        now fate-is-intervening is false;
         stop the action;
     otherwise:
-        now fate-is-intervening is true;
-        try looking;
-        now fate-is-intervening is false;
-        stop the action;"""
+        say "You cannot muster the energy to move. You were in room {room.name}.";"""
         elif (i, j) in self.dead_rooms:
+          # print(f'Room {room_name} is a dead room')
+          assert room.id not in room_ids, f"Room {room.id} already has a mechanic assigned to it"
+          room_ids.append(room.id)
           room_mechanic = f"""
 Before an actor doing something when the actor is the player and the player is in the {room.id}:
     end the story finally; [Lose]"""
         elif (i, j) in self.life_rooms:
+          # print(f'Room {room_name} is a life room')
+          assert room.id not in room_ids, f"Room {room.id} already has a mechanic assigned to it"
+          room_ids.append(room.id)
           room_mechanic = f"""
 Before an actor doing something when the actor is the player and the player is in the {room.id}:
     end the story finally; [Win]"""
         else:
+          # print(f'No special mechanics for room {room_name} at ({i}, {j})')
+          assert room.id not in room_ids, f"Room {room.id} already has a mechanic assigned to it"
+          room_ids.append(room.id)
           room_mechanic = f"""
-Instead of doing something when the player is in the {room.id} and fate-is-intervening is false:
+Instead of doing something when the player is in the {room.id} and activate-game-mechanics is true:
+    now activate-game-mechanics is false;
     let N be a random number from 1 to 100;
     if N > 70: 
-        now fate-is-intervening is true;
         try going {self.death_gate_dir};
-        now fate-is-intervening is false;
         stop the action;
     otherwise:
         continue the action;"""
+
         self.custom_code += room_mechanic + "\n"
         # room = GameMaker.new_room(room_name, i7_custom_code = room_mechanic)
         room_rows.append(room)
@@ -293,3 +314,87 @@ Instead of doing something when the player is in the {room.id} and fate-is-inter
     taken_names.append(room_name)
     return room_name, taken_names
 
+
+  def place_zones(self):
+    L = self.length
+    wr = self.wall_row
+    wc = self.wall_col_start
+    ww = self.wall_width
+
+    D = self.death_gate_dir
+    G = self.life_gate_dir
+
+    # death on EAST wall, life on NORTH wall
+    if D=='east' and G=='north':
+        self.d_rows           = list(range(wr,   L))
+        self.d_cols           = list(range(wc+ww, L-1))
+        self.dead_zone_locs   = [(r, L-1) for r in range(L)]
+        self.life_gate_loc    = [(0, random.randint(1, L-2))]
+        self.player_col       = random.randint(0, int(L/2))
+        self.player_row       = -1
+
+    # death=EAST, life=SOUTH
+    elif D=='east' and G=='south':
+        self.d_rows           = list(range(0,    wr+1))
+        self.d_cols           = list(range(wc+ww, L-1))
+        self.dead_zone_locs   = [(r, L-1) for r in range(L)]
+        self.life_gate_loc    = [(L-1, random.randint(1, L-2))]
+        self.player_col       = random.randint(0, int(L/2))
+        self.player_row       =  0
+
+    # death=WEST, life=NORTH
+    elif D=='west' and G=='north':
+        self.d_rows           = list(range(wr,   L))
+        self.d_cols           = list(range(0,    wc))
+        self.dead_zone_locs   = [(r, 0)   for r in range(L)]
+        self.life_gate_loc    = [(0, random.randint(1, L-2))]
+        self.player_col       = random.randint(int(L/2), L-1)
+        self.player_row       = -1
+
+    # death=WEST, life=SOUTH
+    elif D=='west' and G=='south':
+        self.d_rows           = list(range(0,    wr+1))
+        self.d_cols           = list(range(0,    wc))
+        self.dead_zone_locs   = [(r, 0)   for r in range(L)]
+        self.life_gate_loc    = [(L-1, random.randint(1, L-2))]
+        self.player_col       = random.randint(int(L/2), L-1)
+        self.player_row       =  0
+
+    # death=NORTH, life=EAST
+    elif D=='north' and G=='east':
+        self.d_rows           = list(range(1,    wr))
+        self.d_cols           = list(range(0,   wc))
+        self.dead_zone_locs   = [(0, c)   for c in range(L)]
+        self.life_gate_loc    = [(random.randint(1, L-2), L-1)]
+        self.player_row       = random.randint(int(L/2), L-1)
+        self.player_col       = 0
+
+    # death=NORTH, life=WEST
+    elif D=='north' and G=='west':
+        self.d_rows           = list(range(1,    wr))
+        self.d_cols           = list(range(0,    wc+ww))
+        self.dead_zone_locs   = [(0, c)   for c in range(L)]
+        self.life_gate_loc    = [(random.randint(1, L-2), 0)]
+        self.player_row       = random.randint(int(L/2), L-1)
+        self.player_col       = L-1
+
+    # death=SOUTH, life=EAST
+    elif D=='south' and G=='east':
+        self.d_rows           = list(range(wr+1, L))
+        self.d_cols           = list(range(wc,   L))
+        self.dead_zone_locs   = [(L-1, c) for c in range(L)]
+        self.life_gate_loc    = [(random.randint(1, L-2), L-1)]
+        self.player_row       = 0
+        self.player_col       = random.randint(int(L/2), L-1)
+
+    # death=SOUTH, life=WEST
+    elif D=='south' and G=='west':
+        self.d_rows           = list(range(wr+1, L))
+        self.d_cols           = list(range(0,    wc+ww))
+        self.dead_zone_locs   = [(L-1, c) for c in range(L)]
+        self.life_gate_loc    = [(random.randint(1, L-2), 0)]
+        self.player_row       = 0
+        self.player_col       = random.randint(int(L/2), L-1)
+
+    else:
+        raise ValueError(f"Unsupported gate combination: death={D}, life={G}")

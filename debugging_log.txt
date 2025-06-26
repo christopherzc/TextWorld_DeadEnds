@@ -1,0 +1,55 @@
+['red box[X]         ', 'weird circle[X]    ', 'white square[X]    ', 'orange cresent[X]  ', 'blue cresent[X]    ', 'yellow cresent[X]  ', 'weird dot[X]       ', 'white cresent[X]   ']
+['orange rhombus[D]  ', 'blue circle[D]     ', 'yellow cone[D]     ', 'red triangle       ', 'black rhombus      ', 'gold box           ', 'strange circle     ', 'red line[G]        ']
+['orange dot[D]      ', 'white cone[D]      ', 'strange cresent[D] ', 'yellow spiral      ', 'red cresent        ', 'green cresent      ', 'strange line       ', 'shining rhombus    ']
+['strange triangle   ', 'green spiral       ', 'orange star[W]     ', 'weird cone         ', 'green dot          ', 'yellow rhombus     ', 'yellow triangle    ', 'green circle       ']
+['black star         ', 'white star         ', 'white circle[W]    ', 'black cone         ', 'strange cone       ', 'white line         ', 'shining cone       ', 'shining box        ']
+['black square       ', 'white spiral       ', 'orange square[W]   ', 'weird triangle     ', 'purple star        ', 'shining spiral     ', 'yellow line        ', 'white box          ']
+['orange cone[A]     ', 'purple triangle    ', 'white rhombus      ', 'red dot            ', 'red spiral         ', 'strange star       ', 'weird cresent      ', 'shining line       ']
+['black line         ', 'weird square       ', 'gold star          ', 'blue triangle      ', 'weird box          ', 'shining circle     ', 'gold cone          ', 'gold spiral        ']
+{'lost': False, 'admissible_commands': ['go north', 'go west', 'inventory', 'look'], 'inventory': 'You are carrying nothing.', 'typed_entities': [], 'location': None, 'possible_admissible_commands': ['go east', 'go north', 'go south', 'go west', 'inventory', 'look'], 'description': "-= Shining Line =-\nYou've just walked into a shining line.\n\n\n\nYou need an unguarded exit? You should try going north. You need an unguarded exit? You should try going south. You don't like doors? Why not try going west, that entranceway is unguarded.", 'won': False}
+Done, last move: go south, final score: 0
+Done, last move: go south, final score: 0
+['shining star       ', 'orange dot         ', 'gold line          ', 'purple box         ', 'white square       ', 'red circle         ', 'orange cresent[G]  ', 'yellow circle[X]   ']
+['purple line        ', 'blue line          ', 'weird cone         ', 'purple dot         ', 'green spiral       ', 'blue box           ', 'weird box          ', 'strange triangle[X]']
+['red triangle       ', 'blue circle        ', 'orange circle      ', 'red spiral[W]      ', 'yellow dot[W]      ', 'purple spiral[W]   ', 'red star           ', 'white cone[X]      ']
+['orange cone        ', 'shining spiral     ', 'green box          ', 'strange line       ', 'red cresent        ', 'purple cresent     ', 'gold star[D]       ', 'black square[X]    ']
+['blue triangle      ', 'shining line       ', 'weird spiral       ', 'yellow triangle    ', 'shining rhombus    ', 'shining dot        ', 'red square[D]      ', 'black line[X]      ']
+['strange star       ', 'blue cone          ', 'orange triangle    ', 'weird rhombus      ', 'red dot            ', 'yellow box         ', 'blue star[D]       ', 'blue cresent[X]    ']
+['orange line        ', 'blue spiral        ', 'weird square       ', 'green cresent      ', 'strange circle     ', 'white line         ', 'green star[D]      ', 'strange square[X]  ']
+['strange dot        ', 'white rhombus      ', 'orange box[A]      ', 'yellow spiral      ', 'orange rhombus     ', 'red rhombus        ', 'red cone[D]        ', 'red box[X]         ']
+{'lost': False, 'admissible_commands': ['go east', 'go south', 'inventory', 'look'], 'inventory': 'You are carrying nothing.', 'typed_entities': [], 'location': None, 'possible_admissible_commands': ['go east', 'go north', 'go south', 'go west', 'inventory', 'look'], 'description': "-= Orange Dot =-\nWell, here we are in the orange dot. I guess you better just go and list everything you see here.\n\n\n\nThere is an exit to the east. Don't worry, it is unguarded. You need an unguarded exit? You should try going south. You don't like doors? Why not try going west, that entranceway is unguarded.", 'won': False}
+Done, last move: go west, final score: 0
+Done, last move: go west, final score: 0
+['blue triangle[X]   ', 'strange circle     ', 'green circle       ', 'white star         ', 'purple triangle    ', 'red star[G]        ', 'shining spiral     ', 'red cone           ']
+['red square[X]      ', 'yellow square      ', 'shining rhombus    ', 'shining cone       ', 'green box          ', 'black circle       ', 'green square       ', 'blue rhombus       ']
+['purple box[X]      ', 'white rhombus      ', 'gold line          ', 'yellow dot[W]      ', 'gold triangle[W]   ', 'red dot[W]         ', 'green rhombus      ', 'orange spiral      ']
+['yellow box[D][X]   ', 'white cresent[D]   ', 'yellow spiral[D]   ', 'yellow line        ', 'yellow cone        ', 'strange dot        ', 'gold dot           ', 'weird cone         ']
+['weird circle[D][X] ', 'weird triangle[D]  ', 'strange line[D]    ', 'red rhombus        ', 'weird dot          ', 'yellow triangle    ', 'red circle         ', 'strange triangle   ']
+['orange rhombus[D][X]', 'strange square[D]  ', 'white line[D]      ', 'white square       ', 'orange box         ', 'purple dot         ', 'shining dot        ', 'blue star          ']
+['weird spiral[D][X] ', 'strange cresent[D] ', 'orange dot[D]      ', 'blue square        ', 'yellow rhombus     ', 'purple rhombus     ', 'strange box        ', 'purple cresent     ']
+['black square[D][X] ', 'blue circle[D]     ', 'black rhombus[D]   ', 'shining circle     ', 'green star         ', 'black cone         ', 'purple square      ', 'green cone[A]      ']
+{'lost': False, 'admissible_commands': ['go south', 'go west', 'inventory', 'look'], 'inventory': 'You are carrying nothing.', 'typed_entities': [], 'location': None, 'possible_admissible_commands': ['go east', 'go north', 'go south', 'go west', 'inventory', 'look'], 'description': "-= Shining Spiral =-\nYou are in a shining spiral. An ordinary kind of place.\n\n\n\nYou need an unguarded exit? You should try going east. There is an exit to the south. Don't worry, it is unguarded. There is an unguarded exit to the west.", 'won': True}
+Done, last move: go east, final score: 1
+Done, last move: go east, final score: 0
+['blue dot[D][X]     ', 'orange spiral[D]   ', 'yellow dot[D]      ', 'green triangle     ', 'shining line[A]    ', 'blue cresent       ', 'purple cone        ', 'strange circle     ']
+['shining triangle[D][X]', 'strange star[D]    ', 'white cone[D]      ', 'red box            ', 'green line         ', 'white star         ', 'white square       ', 'gold circle        ']
+['strange triangle[D][X]', 'weird triangle[D]  ', 'orange triangle[D] ', 'orange cresent[W]  ', 'weird dot[W]       ', 'yellow rhombus[W]  ', 'weird rhombus      ', 'white rhombus      ']
+['gold box[D][X]     ', 'blue box[D]        ', 'white circle[D]    ', 'black circle       ', 'strange square     ', 'shining star       ', 'green spiral       ', 'orange line        ']
+['black square[X]    ', 'gold rhombus       ', 'white triangle     ', 'weird cresent      ', 'weird circle       ', 'black dot          ', 'purple star        ', 'strange spiral     ']
+['black spiral[X]    ', 'shining cone       ', 'yellow star        ', 'red cresent        ', 'purple circle      ', 'blue cone          ', 'shining rhombus    ', 'blue spiral        ']
+['yellow triangle[X] ', 'orange star        ', 'gold triangle      ', 'yellow circle      ', 'blue star          ', 'blue rhombus       ', 'green cone         ', 'yellow square      ']
+['orange box[X]      ', 'green star         ', 'blue triangle      ', 'strange rhombus    ', 'gold line          ', 'gold spiral        ', 'orange dot[G]      ', 'black rhombus      ']
+{'lost': True, 'admissible_commands': ['go north', 'go south', 'go west', 'inventory', 'look'], 'inventory': 'You are carrying nothing.', 'typed_entities': [], 'location': None, 'possible_admissible_commands': ['go east', 'go north', 'go south', 'go west', 'inventory', 'look'], 'description': "-= Weird Triangle =-\nThis weird triangle you have just entered is definitely normal. You decide to start listing off everything you see in the room, as if you were in a text adventure.\n\n\n\nThere is an unguarded exit to the east. There is an unblocked exit to the north. There is an exit to the south. Don't worry, it is unguarded. There is an unguarded exit to the west.", 'won': False}
+Done, last move: go east, final score: 0
+Done, last move: go east, final score: 0
+['weird box          ', 'green circle       ', 'orange line[A]     ', 'white box          ', 'red spiral         ', 'green cone         ', 'black triangle[D]  ', 'strange dot[X]     ']
+['white spiral       ', 'blue cresent       ', 'green star         ', 'shining cone       ', 'white square       ', 'shining triangle   ', 'green square[D]    ', 'red rhombus[X]     ']
+['gold spiral        ', 'black cresent      ', 'black rhombus      ', 'orange square[W]   ', 'black spiral[W]    ', 'purple rhombus[W]  ', 'strange circle[D]  ', 'purple circle[X]   ']
+['orange dot         ', 'blue square        ', 'blue rhombus       ', 'strange cone       ', 'shining cresent    ', 'black cone         ', 'black circle[D]    ', 'purple line[X]     ']
+['white circle       ', 'red circle         ', 'orange spiral      ', 'gold cone          ', 'shining dot        ', 'gold star          ', 'yellow rhombus     ', 'white star[X]      ']
+['black dot          ', 'shining square     ', 'blue triangle      ', 'shining line       ', 'purple triangle    ', 'red box            ', 'yellow star        ', 'strange rhombus[X] ']
+['black line         ', 'yellow spiral      ', 'orange star        ', 'red line           ', 'yellow triangle    ', 'blue spiral        ', 'weird circle       ', 'shining box[X]     ']
+['black square       ', 'blue circle        ', 'weird square       ', 'weird cone         ', 'orange rhombus     ', 'gold rhombus       ', 'strange line[G]    ', 'blue star[X]       ']
+{'lost': False, 'admissible_commands': ['go east', 'go north', 'inventory', 'look'], 'inventory': 'You are carrying nothing.', 'typed_entities': [], 'location': None, 'possible_admissible_commands': ['go east', 'go north', 'go south', 'go west', 'inventory', 'look'], 'description': "-= Blue Circle =-\nYou've entered a blue circle.\n\n\n\nYou don't like doors? Why not try going east, that entranceway is unguarded. You need an unguarded exit? You should try going north. You need an unguarded exit? You should try going west.", 'won': False}
+Done, last move: go west, final score: 0
+Done, last move: go west, final score: 0

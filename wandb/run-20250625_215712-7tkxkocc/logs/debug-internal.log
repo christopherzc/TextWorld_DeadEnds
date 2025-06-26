@@ -1,0 +1,18 @@
+{"time":"2025-06-25T21:57:12.888485998Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/wandb/run-20250625_215712-7tkxkocc/logs/debug-core.log"}
+{"time":"2025-06-25T21:57:13.249083157Z","level":"INFO","msg":"stream: created new stream","id":"7tkxkocc"}
+{"time":"2025-06-25T21:57:13.249224351Z","level":"INFO","msg":"stream: started","id":"7tkxkocc"}
+{"time":"2025-06-25T21:57:13.249352306Z","level":"INFO","msg":"handler: started","stream_id":"7tkxkocc"}
+{"time":"2025-06-25T21:57:13.249258153Z","level":"INFO","msg":"writer: Do: started","stream_id":"7tkxkocc"}
+{"time":"2025-06-25T21:57:13.249289511Z","level":"INFO","msg":"sender: started","stream_id":"7tkxkocc"}
+{"time":"2025-06-25T21:57:13.50182844Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-25T21:57:29.123897899Z","level":"WARN","msg":"tensorboard: no root directory","error":"timed out after 10s"}
+{"time":"2025-06-25T21:57:29.124366794Z","level":"INFO","msg":"tensorboard: tracking new log directory","rootDir":{},"logDir":"LocalOrCloudPath(LocalPath=\"/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/tb_logs/PPO_2\")","namespace":""}
+{"time":"2025-06-25T21:57:29.125648477Z","level":"INFO","msg":"tensorboard: saving file","fileLocation":"/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/tb_logs/PPO_2/events.out.tfevents.1750888639.fs-mbz-login-001.3438606.0","runPath":"tb_logs/PPO_2/events.out.tfevents.1750888639.fs-mbz-login-001.3438606.0"}
+{"time":"2025-06-25T23:14:38.076969717Z","level":"INFO","msg":"stream: closing","id":"7tkxkocc"}
+{"time":"2025-06-25T23:14:38.077045142Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-25T23:14:38.077467155Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-25T23:14:39.400206779Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-25T23:14:39.759539497Z","level":"INFO","msg":"handler: closed","stream_id":"7tkxkocc"}
+{"time":"2025-06-25T23:14:39.759591416Z","level":"INFO","msg":"sender: closed","stream_id":"7tkxkocc"}
+{"time":"2025-06-25T23:14:39.75958073Z","level":"INFO","msg":"writer: Close: closed","stream_id":"7tkxkocc"}
+{"time":"2025-06-25T23:14:39.760710802Z","level":"INFO","msg":"stream: closed","id":"7tkxkocc"}
