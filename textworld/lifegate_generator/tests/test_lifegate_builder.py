@@ -30,9 +30,11 @@ def test_basic_lifegate(life_direction = "east", death_direction = "north", wall
                                       possible_admissible_commands = True, typed_entities = True, 
                                       admissible_commands = True,
                                       won = True, lost = True)
-
-   env_id = textworld.gym.register_game(base_folder + formatted_game_name + ".ulx",
+   testing_steps = 2000
+   env_id = textworld.gym.register_game(base_folder + formatted_game_name + ".z8", 
+                                        max_episode_steps = testing_steps,
                                         request_infos = request_infos)
+   
    env = textworld.gym.make(env_id)
 
    # Test win condition
@@ -40,18 +42,23 @@ def test_basic_lifegate(life_direction = "east", death_direction = "north", wall
 
    score, moves, done = 0, 0, False
    total_score = 0
-   for i in range(100):
-      if i % 4 == 0 or i > 50:
+   actions = []
+   for i in range(testing_steps):
+      if i % 6 == 0 or i > 500:
          # Move towards goal
          action = 'go ' + life_direction
-      else:
+      elif i < 1000:
          # Move away from death wall
          action = 'go ' + reverse_directions[death_direction]
+      else:
+         # Only reason agent shouldn't have found lifegate by now is if it is between them and the death wall
+         action = 'go ' + death_direction
+      actions.append(action)
       obs, score, done, infos = env.step(action)
       total_score += score
       if done:
          print(infos)
-         print(f'Done, last move: {action}, final score: {total_score}')
+         print(f'Done testing win conditions, last move: {action}, final score: {total_score}')
          if total_score != 1:
             f"Game should have (99.99%) been won. Check configuration life gate {life_direction}, death gate {death_direction}"
          break
@@ -76,7 +83,7 @@ def test_basic_lifegate(life_direction = "east", death_direction = "north", wall
 
       total_score += score
       if done:
-        print(f'Done, last move: {action}, final score: {total_score}')
+        print(f'Done testing loss conditions last move: {action}, final score: {total_score}')
         if infos['lost'] != True:
            f"Game should have (99.99%) been lost. Check configuration life gate {life_direction}, death gate {death_direction}"
         break
@@ -86,14 +93,25 @@ def test_basic_lifegate(life_direction = "east", death_direction = "north", wall
 
     
 test_basic_lifegate()
+
+print("Tested base")
+
 test_basic_lifegate(life_direction = "north", death_direction = "east", wall_row = 3, 
                         wall_width = 3, wall_col_start = 3)
+
+print(f'Tested life gate: north, death gate: east')
 
 test_basic_lifegate(life_direction = "north", death_direction = "west", wall_row = 3, 
                         wall_width = 3, wall_col_start = 3)
 
+print(f'Tested life gate: north, death gate: west')
+
 test_basic_lifegate(life_direction = "south", death_direction = "west", wall_row = 3, 
                         wall_width = 3, wall_col_start = 3)
 
+print(f'Tested life gate: south, death gate: west')
+
 test_basic_lifegate(life_direction = "south", death_direction = "east", wall_row = 3, 
                         wall_width = 3, wall_col_start = 3)
+
+print(f'Tested life gate: south, death gate: east')

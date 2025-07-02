@@ -139,7 +139,7 @@ Before reading a command:
 
     # Need to make a cleaner function-based way of doing this but for now this is fine
     M.quests = [self.generate_quests(M, actual_rooms)]
-    M.compile(path = self.base_folder + self.format_save_string(), custom_code = self.custom_code)
+    M.compile(path = self.base_folder + self.format_save_string() + ".z8", custom_code = self.custom_code)
     self.generate_room_dict(taken_names, game_name)
     if print_layout:
       self.pretty_print_map(actual_rooms)
@@ -289,7 +289,7 @@ Before an actor doing something when the actor is the player and the player is i
 Instead of doing something when the player is in the {room.id} and activate-game-mechanics is true:
     now activate-game-mechanics is false;
     let N be a random number from 1 to 100;
-    if N > 70: 
+    if N > 99: 
         try going {self.death_gate_dir};
         stop the action;
     otherwise:

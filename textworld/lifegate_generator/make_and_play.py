@@ -2,7 +2,7 @@ import textworld
 import textworld.gym
 from lifegate import LifeGateBuilder
 
-game_name = 'lifegate_base_inform7'
+game_name = 'lifegate_8x8_walls2_4_3_north_east'
 death_gate_dir = 'north'
 lifegate_builder = LifeGateBuilder(wall_row = 2,
                                    wall_width = 4,
@@ -28,7 +28,7 @@ testing = True
 total_score = 0
 if testing:
   acts = ['go east','go east','go east','go east','go east','go east','go east','go east']
-  acts = ['go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west']
+  acts = ['go west', 'stop', 'rst', 'restart', 'exit', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west', 'go west']
   # acts = ['go north', 'go north', 'go north', 'go north', 'go north', 'go north', 'go north']
   for act in acts:
       obs, score, done, infos = env.step(act)
