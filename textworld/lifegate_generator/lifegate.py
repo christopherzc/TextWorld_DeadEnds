@@ -139,16 +139,16 @@ Before reading a command:
 
     # Need to make a cleaner function-based way of doing this but for now this is fine
     M.quests = [self.generate_quests(M, actual_rooms)]
-    M.compile(path = self.base_folder + self.format_save_string() + ".z8", custom_code = self.custom_code)
+    M.compile(path = self.base_folder + self.format_save_string(game_name) + ".z8", custom_code = self.custom_code)
     self.generate_room_dict(taken_names, game_name)
     if print_layout:
       self.pretty_print_map(actual_rooms)
 
-    return self.base_folder, self.format_save_string()
+    return self.base_folder, self.format_save_string(game_name)
 
-  def format_save_string(self):
+  def format_save_string(self, base_name):
      # Default save string for game:
-     return f"lifegate_{self.length}x{self.length}_walls{self.wall_row}_{self.wall_width}_{self.wall_col_start}_{self.death_gate_dir}_{self.life_gate_dir}"
+     return f"{base_name}_{self.length}x{self.length}_walls{self.wall_row}_{self.wall_width}_{self.wall_col_start}_{self.death_gate_dir}_{self.life_gate_dir}"
 
   def generate_quests(self, M, actual_rooms):
      # Use the specified dead and life rooms to create quests.
@@ -165,56 +165,124 @@ Before reading a command:
     return Quest(win_events = win_events, fail_events = fail_events)
        
   def pretty_print_map(self, actual_rooms):
-    # Step 0: Flatten the 2d actual rooms list into a single list of rooms
-    room_names = [room.name for row in actual_rooms for room in row]
-
-    # Step 1: Find max length for padding
-    max_length = max(len(room) for room in room_names) + 3
-
-    # Step 2: Format names and organize into grid
-    named_rooms_formatted = []
-    named_rooms_formatted_unpadded = []
-    rows = []
-    raw_rows = []
-    for room_name in room_names:
-        padded_name = room_name.ljust(max_length)
-        rows.append(padded_name)
-        raw_rows.append(room_name)
-        if len(rows) == self.length:
-            named_rooms_formatted.append(rows)
-            rows = []
-            named_rooms_formatted_unpadded.append(raw_rows)
-            raw_rows = []
-
-    # Add any remaining partial row
-    if rows:
-        named_rooms_formatted.append(rows)
-
-    def add_marker(array, x, y, marker):
-      array[x][y] = array[x][y].rstrip() + marker
-      array[x][y] = array[x][y].ljust(max_length)
-      return array
-
-    named_rooms_formatted = add_marker(named_rooms_formatted, self.player_row, self.player_col, "[A]")
-
-    for wall in self.walls:
-      r1 = wall[0]
-      r2 = wall[1]
-      named_rooms_formatted = add_marker(named_rooms_formatted, r1[0], r1[1], "[W]")
-
-    for i in self.d_rows:
-      for j in self.d_cols:
-        named_rooms_formatted = add_marker(named_rooms_formatted, i, j, "[D]")
-
-    for death in self.dead_zone_locs:
-      named_rooms_formatted = add_marker(named_rooms_formatted, death[0], death[1], "[X]")
-
-    for life in self.life_gate_loc:
-      named_rooms_formatted = add_marker(named_rooms_formatted, life[0], life[1], "[G]")
-
-    # Step 5: Print the grid
-    for row in named_rooms_formatted:
-        print(row)
+    # Create a grid with box characters - each room is 5 chars wide, 3 chars tall
+    room_width = 6
+    room_height = 3
+    grid_height = len(actual_rooms) * room_height + (len(actual_rooms) - 1)
+    grid_width = len(actual_rooms[0]) * room_width + (len(actual_rooms[0]) - 1)
+    
+    # Initialize the display grid
+    display_grid = [[' ' for _ in range(grid_width)] for _ in range(grid_height)]
+    
+    # Frozen set for easier wall checking
+    wall_set = {frozenset([a, b]) for a, b in self.walls}
+    
+    # Helper function to abbreviate room names
+    def abbreviate_room_name(room_name, max_len=3):
+        parts = room_name.split()
+        if len(parts) >= 2:
+            # Take first letter of each word
+            abbrev = ''.join(word[0].upper() for word in parts)
+            if len(abbrev) <= max_len:
+                return abbrev
+        # Fallback: truncate the name
+        return room_name[:max_len].upper()
+    
+    # Fill in rooms and connections
+    for j, row in enumerate(actual_rooms):
+        for i, room in enumerate(row):
+            # Calculate room position in display grid
+            start_row = j * (room_height + 1)
+            start_col = i * (room_width + 1)
+            current_pos = (j, i)
+            
+            # Get room abbreviation and prefix
+            room_abbrev = abbreviate_room_name(room.name, 2)
+            prefix = ''
+            
+            if current_pos == (self.player_row, self.player_col):
+                prefix = ':A'  # Agent
+            elif current_pos in self.dead_zone_locs:
+                prefix = ':X'  # Death
+            elif current_pos in self.life_gate_loc:
+                prefix = ':G'  # Goal
+            elif current_pos in [(r[0], r[1]) for r in self.walls]:
+                prefix = ':W'  # Wall room
+            elif any(current_pos == (dr, dc) for dr in self.d_rows for dc in self.d_cols):
+                prefix = ':D'  # Dying room
+            
+            # Combine prefix and abbreviation (4 chars total)
+            room_content = (room_abbrev + prefix)[:4].center(4)
+            
+            # Draw the room box
+            # Top border
+            for k in range(room_width):
+                display_grid[start_row][start_col + k] = '_'
+            
+            # Middle row with room content
+            display_grid[start_row + 1][start_col] = '|'
+            for k, char in enumerate(room_content):
+                display_grid[start_row + 1][start_col + 1 + k] = char
+            display_grid[start_row + 1][start_col + room_width - 1] = '|'
+            
+            # Bottom border
+            display_grid[start_row + 2][start_col] = '|'
+            for k in range(1, room_width - 1):
+                display_grid[start_row + 2][start_col + k] = '_'
+            display_grid[start_row + 2][start_col + room_width - 1] = '|'
+            
+            # Check and draw connections
+            # South connection
+            if j + 1 < len(actual_rooms):
+                neighbor_pos = (j + 1, i)
+                pair = frozenset([current_pos, neighbor_pos])
+                if pair not in wall_set:
+                    # Draw vertical connection
+                    connection_row = start_row + room_height
+                    connection_col = start_col + room_width // 2
+                    display_grid[connection_row][connection_col] = '|'
+            
+            # East connection  
+            if i + 1 < len(row):
+                neighbor_pos = (j, i + 1)
+                pair = frozenset([current_pos, neighbor_pos])
+                if pair not in wall_set:
+                    # Draw horizontal connection
+                    connection_row = start_row + 1
+                    connection_col = start_col + room_width
+                    display_grid[connection_row][connection_col] = '-'
+    
+    # Print the grid with labels
+    print("\nMap Layout:")
+    print("Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall")
+    print("Connections: | (north-south), - (east-west)")
+    print("Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)")
+    print()
+    
+    for row in display_grid:
+        print(''.join(row))
+    
+    # Print room names legend
+    print("\nRoom Legend:")
+    for j, row in enumerate(actual_rooms):
+        for i, room in enumerate(row):
+            current_pos = (j, i)
+            room_abbrev = abbreviate_room_name(room.name, 2)
+            
+            prefix = ''
+            if current_pos == (self.player_row, self.player_col):
+                prefix = ':A'
+            elif current_pos in self.dead_zone_locs:
+                prefix = ':X'
+            elif current_pos in self.life_gate_loc:
+                prefix = ':G'
+            elif current_pos in [(r[0], r[1]) for r in self.walls]:
+                prefix = ':W'
+            elif any(current_pos == (dr, dc) for dr in self.d_rows for dc in self.d_cols):
+                prefix = ':D'
+            
+            display_name = room_abbrev + prefix
+            print(f"({j},{i}) {display_name:4} : {room.name}")
 
 
   def generate_room_dict(self, taken_names, game_name):

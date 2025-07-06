@@ -15,7 +15,7 @@ reverse_directions = {
 def test_basic_lifegate(life_direction = "east", death_direction = "north", wall_row = 3, 
                         wall_width = 3, wall_col_start = 3):
    base_folder = "/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/"
-   game_name = 'lifegate_base_inform7'
+   game_name = 'lifegate_no_drift'
    death_gate_dir = death_direction
    lifegate_builder = LifeGateBuilder(wall_row = wall_row,
                                     wall_width = wall_width,
