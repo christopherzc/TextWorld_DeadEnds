@@ -1,5 +1,6 @@
 import random
 import json
+import numpy as np
 from textworld import GameMaker
 from textworld.generator import World, Quest, Event
 
@@ -19,26 +20,17 @@ reverse_directions = {
 
 class LifeGateBuilder:
 
-  def __init__(self, length = 8, wall_row = 4, wall_width = 3, wall_col_start = 2, 
+  def __init__(self, length = 8, wall_coordinates = [(4, 2), (4, 5)],
                life_gate_dir = 'north', death_gate_dir = 'east',
                base_folder = "./", quests = []):
     self.base_folder = base_folder
     self.quests = quests
     self.length = length
-    self.wall_row = wall_row
-    self.wall_width = wall_width
-    self.wall_col_start = wall_col_start
     self.life_gate_dir = life_gate_dir
     self.death_gate_dir = death_gate_dir
+    self.wall_coordinates = wall_coordinates
 
-    assert wall_col_start + wall_width < length, "No trapping the agent in an unwinnable scenario"
     assert life_gate_dir != death_gate_dir, "Cannot have life gate and death row on same wall"
-
-    # Always have the walls be between the agent start position and the life gate
-    if self.death_gate_dir in ["east", "west"]:
-      self.walls = [((wall_row - 1, wall_col_start + i), (wall_row, wall_col_start + i)) for i in range(wall_width)]
-    else:
-      self.walls = [((wall_row + i, wall_col_start - 1), (wall_row + i, wall_col_start)) for i in range(wall_width)]
 
     self.dead_zone_locs = []
     self.d_rows = []
@@ -54,6 +46,72 @@ class LifeGateBuilder:
       for j in self.d_cols:
         self.dying_rooms.append((i, j))
 
+    # Get all wall configurations from the wall_coordinates argument.
+    # Wall configurations should only ever have 2, 3 or 4 points that represent the 'anchors' of the wall
+    # Two coordinates is just a straight line wall
+    if len(wall_coordinates) == 2:
+       # Check whether it is a vertical or a horizontal wall:
+      if wall_coordinates[0][0] == wall_coordinates[1][0]:  # Same row, horizontal wall
+         self.walls = [(wall_coordinates[0][0], i) for i in range(min(wall_coordinates[0][1], wall_coordinates[1][1]), max(wall_coordinates[0][1], wall_coordinates[1][1]) + 1)]
+      # Check if it is vertical wall:
+      elif wall_coordinates[0][1] == wall_coordinates[1][1]:  # Same column, vertical wall
+         self.walls = [(wall_coordinates[0][0], i) for i in range(min(wall_coordinates[0][0], wall_coordinates[1][0]), max(wall_coordinates[0][0], wall_coordinates[1][0]) + 1)]
+      else:
+          raise ValueError("If two coordinates, wall coordinates must be either horizontal or vertical (same row or same column).")
+    # Three coordinates is an L: Need to figure out which two are the anchors and which one is the corner
+    elif len(wall_coordinates) == 3:
+       # We know there is a horizontal wall and a vertical wall. Make sure there are.
+      if wall_coordinates[0][0] == wall_coordinates[1][0]:  # First two are horizontal
+        self.walls = [(wall_coordinates[0][0], i) for i in range(min(wall_coordinates[0][1], wall_coordinates[1][1]), max(wall_coordinates[0][1], wall_coordinates[1][1]) + 1)]
+        self.walls += [(i, wall_coordinates[2][1]) for i in range(min(wall_coordinates[0][0], wall_coordinates[2][0]), max(wall_coordinates[0][0], wall_coordinates[2][0]) + 1)]
+      elif wall_coordinates[0][1] == wall_coordinates[1][1]:  # First two are vertical
+        self.walls = [(i, wall_coordinates[0][1]) for i in range(min(wall_coordinates[0][0], wall_coordinates[1][0]), max(wall_coordinates[0][0], wall_coordinates[1][0]) + 1)]
+        self.walls += [(wall_coordinates[2][0], i) for i in range(min(wall_coordinates[0][1], wall_coordinates[2][1]), max(wall_coordinates[0][1], wall_coordinates[2][1]) + 1)]    
+      elif wall_coordinates[0][0] == wall_coordinates[2][0]:  # First and last are horizontal
+        self.walls = [(wall_coordinates[0][0], i) for i in range(min(wall_coordinates[0][1], wall_coordinates[2][1]), max(wall_coordinates[0][1], wall_coordinates[2][1]) + 1)]
+        self.walls += [(i, wall_coordinates[1][1]) for i in range(min(wall_coordinates[0][0], wall_coordinates[1][0]), max(wall_coordinates[0][0], wall_coordinates[1][0]) + 1)]
+      else:
+         raise ValueError("If three coordinates, wall coordinates must be either horizontal or vertical (same row or same column) and one corner.")   
+      # Four coordinates is three walls, or a square missing the wall closest to the agent
+    elif len(wall_coordinates) == 4:
+       # First, we direction of the agent (opposite of lifegate)
+      player_dir = reverse_directions[self.life_gate_dir]
+
+      # We do this by identifying a point on the wall that is closest to the player. Then, we just generate all of the walls
+      # and skip any wall that contains said point.
+      point_to_skip = ()    
+
+      # First, get the 'center' of the square (or closest point to the center)
+      center_of_square = (np.sum([wall_coor[0] for wall_coor in wall_coordinates]) // 4,
+                          np.sum([wall_coor[1] for wall_coor in wall_coordinates]) // 4)
+
+      # If the player is on the east, we skip the east most wall, if they are on the south, we skip the south most wall, etc.
+      if player_dir == 'east':
+        col_to_skip = max(wall_coordinates[0][1], wall_coordinates[1][1], wall_coordinates[2][1], wall_coordinates[3][1])
+        point_to_skip = (center_of_square[0], col_to_skip)
+      elif player_dir == 'west':
+        col_to_skip = min(wall_coordinates[0][1], wall_coordinates[1][1], wall_coordinates[2][1], wall_coordinates[3][1])
+        point_to_skip = (center_of_square[0], col_to_skip)
+      elif player_dir == 'north':
+        row_to_skip = max(wall_coordinates[0][0], wall_coordinates[1][0], wall_coordinates[2][0], wall_coordinates[3][0])
+        point_to_skip = (row_to_skip, center_of_square[1])
+      elif player_dir == 'south':
+        row_to_skip = min(wall_coordinates[0][0], wall_coordinates[1][0], wall_coordinates[2][0], wall_coordinates[3][0])
+        point_to_skip = (row_to_skip, center_of_square[1])
+
+      self.walls = []
+      for i in range(4):
+        potential_walls = []
+        if wall_coordinates[i][0] == wall_coordinates[(i + 1) % 4][0]:  # Same row, horizontal wall
+          potential_walls += [(wall_coordinates[i][0], j) for j in range(min(wall_coordinates[i][1], wall_coordinates[(i + 1) % 4][1]), max(wall_coordinates[i][1], wall_coordinates[(i + 1) % 4][1]) + 1)]
+        elif wall_coordinates[i][1] == wall_coordinates[(i + 1) % 4][1]:  # Same column, vertical wall
+          potential_walls += [(j, wall_coordinates[i][1]) for j in range(min(wall_coordinates[i][0], wall_coordinates[(i + 1) % 4][0]), max(wall_coordinates[i][0], wall_coordinates[(i + 1) % 4][0]) + 1)]
+        
+        if point_to_skip not in potential_walls:
+          self.walls += potential_walls
+  
+    self.walled_rooms = self.get_walls()
+    print(f'Walled rooms: {self.walled_rooms}')
     self.dead_rooms = self.dead_zone_locs
 
     self.life_rooms = self.life_gate_loc
@@ -65,10 +123,51 @@ Before reading a command:
     now activate-game-mechanics is true.
 """
 
+  def get_walls(self):
+    # Iterate through all 'walls' in self.walls.
+    # If there are two walls horizontally next to each other, there is a vertical wall (neither should have a 'south' exit)
+    # If there are two walls vertically next to each other, there is a horizontal wall (neither should have an 'east' exit)
+    walled_rooms = []
+    for wall1 in self.walls:
+      for wall2 in self.walls:
+        if wall1 != wall2:
+          # Check if they are adjacent horizontally
+          if wall1[0] == wall2[0] and abs(wall1[1] - wall2[1]) == 1:
+            # They are adjacent horizontally, so there is a vertical wall.
+            # Put the wall on the 'side' further away from the edge of the map
+            if wall1[0] / self.length < 0.5:
+              # Put the wall to the 'north'
+              walled_rooms.append((wall1, (wall1[0] + 1, wall1[1])))
+              walled_rooms.append(((wall1[0] + 1, wall1[1]), wall1))
+            else:
+              # Put the wall to the 'south'
+              walled_rooms.append((wall1, (wall1[0] - 1, wall1[1])))
+              walled_rooms.append(((wall1[0] - 1, wall1[1]), wall1))
+          # Check if they are adjacent vertically
+          elif wall1[1] == wall2[1] and abs(wall1[0] - wall2[0]) == 1:
+            # They are adjacent vertically, so there is a horizontal wall.
+            # Put the wall on the 'side' further away from the edge of the map
+            if wall1[1] / self.length < 0.5:
+              # Put the wall to the 'west'
+              walled_rooms.append((wall1, (wall1[0], wall1[1] + 1)))
+              walled_rooms.append(((wall1[0], wall1[1] + 1), wall1))
+            else:
+              # Put the wall to the 'east'
+              walled_rooms.append((wall1, (wall1[0], wall1[1] - 1)))
+              walled_rooms.append(((wall1[0], wall1[1] - 1), wall1))
+    return walled_rooms
+       
+  def check_walls(self, room1, room2):
+    for wall in self.walled_rooms:
+      # Specifically check each coordinate:
+      if wall[0][0] == room1[0] and wall[0][1] == room1[1] and wall[1][0] == room2[0] and wall[1][1] == room2[1]:
+        return True
+    return False
 
   def make_game(self, game_name = 'lifegate_base', print_layout = False):
     taken_names, actual_rooms, M = self.generate_rooms(GameMaker())
-
+  
+    walls = 0
     # Frozen set for easier wall checking:
     wall_set = {frozenset([a, b]) for a, b in self.walls}
 
@@ -84,8 +183,7 @@ Before reading a command:
             # South:
             if j + 1 < len(actual_rooms):
                 neighbor_pos = (j + 1, i)
-                pair = frozenset([current_pos, neighbor_pos])
-                if pair not in wall_set:
+                if not self.check_walls(current_pos, neighbor_pos):
                     south_room = actual_rooms[j + 1][i]
                     try:
                       s_corridor = M.connect(room.south, south_room.north)
@@ -93,12 +191,14 @@ Before reading a command:
                       num_connections += 1
                     except:
                       failed_connections += 1
+                else:
+                  print(f'Wall between {room.name} and {west_room.name}')
+                  walls += 1
 
             # North:
             if j - 1 >= 0:
                 neighbor_pos = (j - 1, i)
-                pair = frozenset([current_pos, neighbor_pos])
-                if pair not in wall_set:
+                if not self.check_walls(current_pos, neighbor_pos):
                     north_room = actual_rooms[j - 1][i]
                     try:
                       n_corridor = M.connect(room.north, north_room.south)
@@ -106,12 +206,14 @@ Before reading a command:
                       # print(f'{room.name} is south of {north_room.name}')
                     except:
                       failed_connections += 1
+                else:
+                  print(f'Wall between {room.name} and {west_room.name}')
+                  walls += 1
 
             # East:
             if i + 1 < len(row):
                 neighbor_pos = (j, i + 1)
-                pair = frozenset([current_pos, neighbor_pos])
-                if pair not in wall_set:
+                if not self.check_walls(current_pos, neighbor_pos):
                     east_room = actual_rooms[j][i + 1]
                     try:
                       e_corridor = M.connect(room.east, east_room.west)
@@ -119,12 +221,14 @@ Before reading a command:
                       # print(f'{room.name} is west of {east_room.name}')
                     except:
                       failed_connections += 1
+                else:
+                  print(f'Wall between {room.name} and {west_room.name}')
+                  walls += 1
 
             # West:
             if i - 1 >= 0:
                 neighbor_pos = (j, i - 1)
-                pair = frozenset([current_pos, neighbor_pos])
-                if pair not in wall_set:
+                if not self.check_walls(current_pos, neighbor_pos):
                     west_room = actual_rooms[j][i - 1]
                     try:
                       w_corridor = M.connect(room.west, west_room.east)
@@ -132,11 +236,16 @@ Before reading a command:
                       # print(f'{room.name} is east of {west_room.name}')
                     except:
                       failed_connections += 1
+                else:
+                  print(f'Wall between {room.name} and {west_room.name}')
+                  walls += 1
 
     # Randomly set the player somewhere in the left corner (hard coded for now until we get stuff working)
     M.set_player(actual_rooms[self.player_row][self.player_col])
     # print(f'Player set in room {actual_rooms[self.player_row][self.player_col].name}')
 
+    print(f'Connections: {num_connections}, Failed connections: {failed_connections}')
+    print(f'Num walls: {walls}')
     # Need to make a cleaner function-based way of doing this but for now this is fine
     M.quests = [self.generate_quests(M, actual_rooms)]
     M.compile(path = self.base_folder + self.format_save_string(game_name) + ".z8", custom_code = self.custom_code)
@@ -148,7 +257,14 @@ Before reading a command:
 
   def format_save_string(self, base_name):
      # Default save string for game:
-     return f"{base_name}_{self.length}x{self.length}_walls{self.wall_row}_{self.wall_width}_{self.wall_col_start}_{self.death_gate_dir}_{self.life_gate_dir}"
+    wall_shape = ""
+    if len(self.wall_coordinates) == 2:
+        wall_shape = "line"
+    elif len(self.wall_coordinates) == 3:
+        wall_shape = "L"
+    elif len(self.wall_coordinates) == 4:
+        wall_shape = "U"
+    return f"{base_name}_{self.length}x{self.length}_wall{wall_shape}_{self.death_gate_dir}_{self.life_gate_dir}"
 
   def generate_quests(self, M, actual_rooms):
      # Use the specified dead and life rooms to create quests.
@@ -166,16 +282,17 @@ Before reading a command:
        
   def pretty_print_map(self, actual_rooms):
     # Create a grid with box characters - each room is 5 chars wide, 3 chars tall
-    room_width = 6
-    room_height = 3
+    room_width = 10
+    room_height = 4
     grid_height = len(actual_rooms) * room_height + (len(actual_rooms) - 1)
-    grid_width = len(actual_rooms[0]) * room_width + (len(actual_rooms[0]) - 1)
+    grid_width = len(actual_rooms[0]) * room_width + 2 * (len(actual_rooms[0]) - 1)
     
     # Initialize the display grid
     display_grid = [[' ' for _ in range(grid_width)] for _ in range(grid_height)]
     
     # Frozen set for easier wall checking
     wall_set = {frozenset([a, b]) for a, b in self.walls}
+    print(wall_set)
     
     # Helper function to abbreviate room names
     def abbreviate_room_name(room_name, max_len=3):
@@ -216,41 +333,41 @@ Before reading a command:
             
             # Draw the room box
             # Top border
-            for k in range(room_width):
+            for k in range(room_width - 2):
                 display_grid[start_row][start_col + k] = '_'
             
             # Middle row with room content
             display_grid[start_row + 1][start_col] = '|'
             for k, char in enumerate(room_content):
                 display_grid[start_row + 1][start_col + 1 + k] = char
-            display_grid[start_row + 1][start_col + room_width - 1] = '|'
+            display_grid[start_row + 1][start_col + room_width - 3] = '|'
             
             # Bottom border
             display_grid[start_row + 2][start_col] = '|'
-            for k in range(1, room_width - 1):
+            for k in range(1, room_width - 2):
                 display_grid[start_row + 2][start_col + k] = '_'
-            display_grid[start_row + 2][start_col + room_width - 1] = '|'
+            display_grid[start_row + 2][start_col + room_width - 3] = '|'
             
             # Check and draw connections
             # South connection
             if j + 1 < len(actual_rooms):
                 neighbor_pos = (j + 1, i)
-                pair = frozenset([current_pos, neighbor_pos])
-                if pair not in wall_set:
+                if not self.check_walls(current_pos, neighbor_pos):
                     # Draw vertical connection
                     connection_row = start_row + room_height
                     connection_col = start_col + room_width // 2
-                    display_grid[connection_row][connection_col] = '|'
+                    display_grid[connection_row][connection_col - 2] = '|'
             
             # East connection  
             if i + 1 < len(row):
                 neighbor_pos = (j, i + 1)
-                pair = frozenset([current_pos, neighbor_pos])
-                if pair not in wall_set:
+                if not self.check_walls(current_pos, neighbor_pos):
                     # Draw horizontal connection
                     connection_row = start_row + 1
                     connection_col = start_col + room_width
-                    display_grid[connection_row][connection_col] = '-'
+                    display_grid[connection_row][connection_col] = '='
+                    display_grid[connection_row][connection_col-1] = '='
+                    display_grid[connection_row][connection_col-2] = '='
     
     # Print the grid with labels
     print("\nMap Layout:")
@@ -276,7 +393,7 @@ Before reading a command:
                 prefix = ':X'
             elif current_pos in self.life_gate_loc:
                 prefix = ':G'
-            elif current_pos in [(r[0], r[1]) for r in self.walls]:
+            elif current_pos in self.walls:
                 prefix = ':W'
             elif any(current_pos == (dr, dc) for dr in self.d_rows for dc in self.d_cols):
                 prefix = ':D'
@@ -385,17 +502,17 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
   def place_zones(self):
     L = self.length
-    wr = self.wall_row
-    wc = self.wall_col_start
-    ww = self.wall_width
 
     D = self.death_gate_dir
     G = self.life_gate_dir
 
     # death on EAST wall, life on NORTH wall
     if D=='east' and G=='north':
-        self.d_rows           = list(range(wr,   L))
-        self.d_cols           = list(range(wc+ww, L-1))
+        # In this configuration, get the wall anchor most to the south and the east and populate the dead zones
+        row_coor_anchor = max([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = max([coor[1] for coor in self.wall_coordinates])
+        self.d_rows           = list(range(row_coor_anchor+1, L))
+        self.d_cols           = list(range(col_coor_anchor, L))
         self.dead_zone_locs   = [(r, L-1) for r in range(L)]
         self.life_gate_loc    = [(0, random.randint(1, L-2))]
         self.player_col       = random.randint(0, int(L/2))
@@ -403,8 +520,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=EAST, life=SOUTH
     elif D=='east' and G=='south':
-        self.d_rows           = list(range(0,    wr+1))
-        self.d_cols           = list(range(wc+ww, L-1))
+        row_coor_anchor = min([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = max([coor[1] for coor in self.wall_coordinates])
+        self.d_rows           = list(range(row_coor_anchor+1, L))
+        self.d_cols           = list(range(col_coor_anchor, L-1))
         self.dead_zone_locs   = [(r, L-1) for r in range(L)]
         self.life_gate_loc    = [(L-1, random.randint(1, L-2))]
         self.player_col       = random.randint(0, int(L/2))
@@ -412,8 +531,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=WEST, life=NORTH
     elif D=='west' and G=='north':
-        self.d_rows           = list(range(wr,   L))
-        self.d_cols           = list(range(0,    wc))
+        row_coor_anchor = max([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = min([coor[1] for coor in self.wall_coordinates])
+        self.d_rows           = list(range(row_coor_anchor+1, L))
+        self.d_cols           = list(range(0,    col_coor_anchor))
         self.dead_zone_locs   = [(r, 0)   for r in range(L)]
         self.life_gate_loc    = [(0, random.randint(1, L-2))]
         self.player_col       = random.randint(int(L/2), L-1)
@@ -421,8 +542,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=WEST, life=SOUTH
     elif D=='west' and G=='south':
-        self.d_rows           = list(range(0,    wr+1))
-        self.d_cols           = list(range(0,    wc))
+        row_coor_anchor = min([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = min([coor[1] for coor in self.wall_coordinates])
+        self.d_rows           = list(range(0, row_coor_anchor))
+        self.d_cols           = list(range(0,    col_coor_anchor))
         self.dead_zone_locs   = [(r, 0)   for r in range(L)]
         self.life_gate_loc    = [(L-1, random.randint(1, L-2))]
         self.player_col       = random.randint(int(L/2), L-1)
@@ -430,8 +553,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=NORTH, life=EAST
     elif D=='north' and G=='east':
-        self.d_rows           = list(range(1,    wr))
-        self.d_cols           = list(range(0,   wc))
+        row_coor_anchor = min([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = max([coor[1] for coor in self.wall_coordinates])  
+        self.d_rows           = list(range(0,    row_coor_anchor+1))
+        self.d_cols           = list(range(col_coor_anchor, L-1))
         self.dead_zone_locs   = [(0, c)   for c in range(L)]
         self.life_gate_loc    = [(random.randint(1, L-2), L-1)]
         self.player_row       = random.randint(int(L/2), L-1)
@@ -439,8 +564,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=NORTH, life=WEST
     elif D=='north' and G=='west':
-        self.d_rows           = list(range(1,    wr))
-        self.d_cols           = list(range(0,    wc+ww))
+        row_coor_anchor = min([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = min([coor[1] for coor in self.wall_coordinates])
+        self.d_rows           = list(range(0,    row_coor_anchor+1))
+        self.d_cols           = list(range(col_coor_anchor,    L-1))
         self.dead_zone_locs   = [(0, c)   for c in range(L)]
         self.life_gate_loc    = [(random.randint(1, L-2), 0)]
         self.player_row       = random.randint(int(L/2), L-1)
@@ -448,8 +575,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=SOUTH, life=EAST
     elif D=='south' and G=='east':
-        self.d_rows           = list(range(wr+1, L))
-        self.d_cols           = list(range(wc,   L))
+        row_coor_anchor = max([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = max([coor[1] for coor in self.wall_coordinates])
+        self.d_rows           = list(range(row_coor_anchor+1, L))
+        self.d_cols           = list(range(0, col_coor_anchor))
         self.dead_zone_locs   = [(L-1, c) for c in range(L)]
         self.life_gate_loc    = [(random.randint(1, L-2), L-1)]
         self.player_row       = 0
@@ -457,8 +586,10 @@ Instead of doing something when the player is in the {room.id} and activate-game
 
     # death=SOUTH, life=WEST
     elif D=='south' and G=='west':
-        self.d_rows           = list(range(wr+1, L))
-        self.d_cols           = list(range(0,    wc+ww))
+        row_coor_anchor = max([coor[0] for coor in self.wall_coordinates])
+        col_coor_anchor = min([coor[1] for coor in self.wall_coordinates])   
+        self.d_rows           = list(range(row_coor_anchor+1, L))
+        self.d_cols           = list(range(col_coor_anchor, L))
         self.dead_zone_locs   = [(L-1, c) for c in range(L)]
         self.life_gate_loc    = [(random.randint(1, L-2), 0)]
         self.player_row       = 0
