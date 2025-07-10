@@ -12,10 +12,11 @@ reverse_directions = {
     "west": "east"
 }
 
-def test_basic_lifegate(game_name = "", life_direction = "east", death_direction = "north", wall_coordinates = [(3, 2), (3, 5)]):
+def test_basic_lifegate(game_name = "", life_direction = "east", death_direction = "north", wall_coordinates = [(3, 2), (3, 5)], length = 8):
    base_folder = "/mnt/weka/home/christopher.cui/TextWorld_DeadEnds/"
    death_gate_dir = death_direction
-   lifegate_builder = LifeGateBuilder(wall_coordinates = wall_coordinates,
+   lifegate_builder = LifeGateBuilder(length = length,
+                                    wall_coordinates = wall_coordinates,
                                     death_gate_dir = death_gate_dir,
                                     life_gate_dir = life_direction,
                                     base_folder = base_folder,
@@ -90,6 +91,9 @@ def test_basic_lifegate(game_name = "", life_direction = "east", death_direction
 
 
 test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
+                    wall_coordinates = [(3, 2), (3, 5)])
+
+test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
                     wall_coordinates = [(3, 2), (3, 5), (4,5)])
 
 test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
@@ -98,9 +102,19 @@ test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "nort
 test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
                     wall_coordinates = [(2, 3), (2, 5), (5, 3)])
 
-test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
-                    wall_coordinates = [(2, 5), (4, 5), (3, 5)])
+# test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
+#                     wall_coordinates = [(2, 5), (2, 4), (3, 5)])
 
 test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
                     wall_coordinates = [(2, 2), (6, 2), (6, 4)])
+
+test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
+                    wall_coordinates = [(2, 2), (2, 5), (6, 2), (6, 5)])
+
+
+test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
+                    wall_coordinates = [(2, 2), (2, 4), (6, 2), (6, 4)])
+
+test_basic_lifegate(game_name = 'lifegate_oned_no_drift', life_direction = "north", death_direction = "east", 
+                    wall_coordinates = [(2, 2), (2, 8), (6, 2), (6, 8)], length = 10)
 

@@ -5,8 +5,8 @@ from textworld import GameMaker
 from textworld.generator import World, Quest, Event
 
 
-colors_array = ['red', 'blue', 'yellow', 'orange', 'purple', 'green', 'black', 'white', 'gold', 'shining', 'weird', 'strange']
-shapes_array = ['square', 'box', 'circle', 'star', 'cresent', 'triangle', 'rhombus', 'dot', 'spiral', 'cone', 'line']
+colors_array = ['red', 'blue', 'yellow', 'orange', 'purple', 'green', 'black', 'white', 'gold', 'shining', 'weird', 'strange', 'brown', 'pink', 'gray', 'silver', 'cyan', 'magenta', 'teal', 'turquoise', 'violet']
+shapes_array = ['square', 'box', 'circle', 'star', 'cresent', 'triangle', 'rhombus', 'dot', 'spiral', 'cone', 'line', 'oval', 'rectangle', 'hexagon', 'octagon', 'pentagon', 'cross', 'diamond', 'heart', 'arrow']
 
 
 # For determining the position of the dying zone:
@@ -93,22 +93,41 @@ class LifeGateBuilder:
         col_to_skip = min(wall_coordinates[0][1], wall_coordinates[1][1], wall_coordinates[2][1], wall_coordinates[3][1])
         point_to_skip = (center_of_square[0], col_to_skip)
       elif player_dir == 'north':
-        row_to_skip = max(wall_coordinates[0][0], wall_coordinates[1][0], wall_coordinates[2][0], wall_coordinates[3][0])
-        point_to_skip = (row_to_skip, center_of_square[1])
-      elif player_dir == 'south':
         row_to_skip = min(wall_coordinates[0][0], wall_coordinates[1][0], wall_coordinates[2][0], wall_coordinates[3][0])
         point_to_skip = (row_to_skip, center_of_square[1])
+      elif player_dir == 'south':
+        row_to_skip = max(wall_coordinates[0][0], wall_coordinates[1][0], wall_coordinates[2][0], wall_coordinates[3][0])
+        point_to_skip = (row_to_skip, center_of_square[1])
 
+      print(point_to_skip)
       self.walls = []
-      for i in range(4):
+
+      # Now, get all the pair coordinates for walls. There should be four total
+      wall_pairs = []
+      for wall_coor in wall_coordinates:
+         for wall_coor2 in wall_coordinates:
+            if wall_coor == wall_coor2:
+              continue
+            else:
+              # Check if they are adjacent horizontally or vertically
+              if wall_coor[0] == wall_coor2[0] or wall_coor[1] == wall_coor2[1]:
+                wall_pairs.append((wall_coor, wall_coor2))
+
+      print(wall_pairs)
+      # Now generate the walls for all of these pairs.
+      for wall1, wall2 in wall_pairs:
+        # Generate the walled rooms based on the wall pair
         potential_walls = []
-        if wall_coordinates[i][0] == wall_coordinates[(i + 1) % 4][0]:  # Same row, horizontal wall
-          potential_walls += [(wall_coordinates[i][0], j) for j in range(min(wall_coordinates[i][1], wall_coordinates[(i + 1) % 4][1]), max(wall_coordinates[i][1], wall_coordinates[(i + 1) % 4][1]) + 1)]
-        elif wall_coordinates[i][1] == wall_coordinates[(i + 1) % 4][1]:  # Same column, vertical wall
-          potential_walls += [(j, wall_coordinates[i][1]) for j in range(min(wall_coordinates[i][0], wall_coordinates[(i + 1) % 4][0]), max(wall_coordinates[i][0], wall_coordinates[(i + 1) % 4][0]) + 1)]
-        
-        if point_to_skip not in potential_walls:
-          self.walls += potential_walls
+        if wall1[0] == wall2[0]:  # Same row, horizontal wall
+          for i in range(min(wall1[1], wall2[1]), max(wall1[1], wall2[1]) + 1):
+            potential_walls.append((wall1[0], i))
+        elif wall1[1] == wall2[1]:  # Same column, vertical wall
+          for i in range(min(wall1[0], wall2[0]), max(wall1[0], wall2[0]) + 1):
+            potential_walls.append((i, wall1[1]))
+        # If the point to skip is in the potential walls, skip it
+        if point_to_skip in potential_walls:
+          continue
+        self.walls += potential_walls
   
     self.walled_rooms = self.get_walls()
     print(f'Walled rooms: {self.walled_rooms}')
@@ -135,26 +154,29 @@ Before reading a command:
           if wall1[0] == wall2[0] and abs(wall1[1] - wall2[1]) == 1:
             # They are adjacent horizontally, so there is a vertical wall.
             # Put the wall on the 'side' further away from the edge of the map
-            if wall1[0] / self.length < 0.5:
-              # Put the wall to the 'north'
-              walled_rooms.append((wall1, (wall1[0] + 1, wall1[1])))
-              walled_rooms.append(((wall1[0] + 1, wall1[1]), wall1))
-            else:
-              # Put the wall to the 'south'
-              walled_rooms.append((wall1, (wall1[0] - 1, wall1[1])))
-              walled_rooms.append(((wall1[0] - 1, wall1[1]), wall1))
+            # if wall1[0] / self.length < 0.5:
+            #   # Put the wall to the 'north'
+            #   walled_rooms.append((wall1, (wall1[0] + 1, wall1[1])))
+            #   walled_rooms.append(((wall1[0] + 1, wall1[1]), wall1))
+            # else:
+            #   # Put the wall to the 'south'
+            walled_rooms.append((wall1, (wall1[0] - 1, wall1[1])))
+            walled_rooms.append(((wall1[0] - 1, wall1[1]), wall1))
           # Check if they are adjacent vertically
           elif wall1[1] == wall2[1] and abs(wall1[0] - wall2[0]) == 1:
             # They are adjacent vertically, so there is a horizontal wall.
             # Put the wall on the 'side' further away from the edge of the map
-            if wall1[1] / self.length < 0.5:
-              # Put the wall to the 'west'
-              walled_rooms.append((wall1, (wall1[0], wall1[1] + 1)))
-              walled_rooms.append(((wall1[0], wall1[1] + 1), wall1))
-            else:
-              # Put the wall to the 'east'
-              walled_rooms.append((wall1, (wall1[0], wall1[1] - 1)))
-              walled_rooms.append(((wall1[0], wall1[1] - 1), wall1))
+            # if wall1[1] / self.length < 0.5:
+            #   # Put the wall to the 'west'
+            #   walled_rooms.append((wall1, (wall1[0], wall1[1] + 1)))
+            #   walled_rooms.append(((wall1[0], wall1[1] + 1), wall1))
+            # else:
+            #   # Put the wall to the 'east'
+            #   walled_rooms.append((wall1, (wall1[0], wall1[1] - 1)))
+            #   walled_rooms.append(((wall1[0], wall1[1] - 1), wall1))
+            walled_rooms.append((wall1, (wall1[0], wall1[1] - 1)))
+            walled_rooms.append(((wall1[0], wall1[1] - 1), wall1))
+
     return walled_rooms
        
   def check_walls(self, room1, room2):

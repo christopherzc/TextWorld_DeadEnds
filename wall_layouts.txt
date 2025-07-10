@@ -1,0 +1,1156 @@
+Walled rooms: [((3, 2), (2, 2)), ((2, 2), (3, 2)), ((3, 3), (2, 3)), ((2, 3), (3, 3)), ((3, 3), (2, 3)), ((2, 3), (3, 3)), ((3, 4), (2, 4)), ((2, 4), (3, 4)), ((3, 4), (2, 4)), ((2, 4), (3, 4)), ((3, 5), (2, 5)), ((2, 5), (3, 5))]
+Wall between teal circle and silver diamond
+Wall between shining hexagon and strange triangle
+Wall between gray cresent and teal circle
+Wall between cyan cresent and shining hexagon
+Wall between strange cross and white line
+Wall between violet dot and gold box
+Wall between yellow arrow and strange cross
+Wall between white triangle and violet dot
+Connections: 108, Failed connections: 108
+Num walls: 8
+{frozenset({3}), frozenset({3, 4}), frozenset({2, 3}), frozenset({3, 5})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| SR   |===| BR   |===| MP   |===| OH   |===| OD   |===| PA   |===|SS:G  |===|TT:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GC   |===| TC   |===| BD   |===| PO   |===| YS   |===| SC   |===| SC   |===|MC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SD   |===| ST   |===| TC   |===| SH   |===| GC   |===| CC   |===| MA   |===|ST:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |                                                      |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| WL   |===| GB   |===|SC:W  |===|VD:W  |===|YA:W  |===|WT:W  |===| WT   |===|WS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| RR   |===| BC   |===| PS   |===| SR   |===| BD   |===|WC:D  |===|CH:D  |===|BS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GR   |===| GL   |===| YB   |===| GB   |===| SO   |===|RH:D  |===|SD:D  |===|WS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| ST   |===| SA   |===| GH   |===| TD   |===| WH   |===|WD:D  |===|GD:D  |===|GB:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+|RP:A  |===| PC   |===| SC   |===| SC   |===| SS   |===|TO:D  |===|BR:D  |===|OO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) SR   : strange rhombus
+(0,1) BR   : brown rectangle
+(0,2) MP   : magenta pentagon
+(0,3) OH   : orange hexagon
+(0,4) OD   : orange diamond
+(0,5) PA   : purple arrow
+(0,6) SS:G : strange star
+(0,7) TT:A : turquoise triangle
+(1,0) GC   : green circle
+(1,1) TC   : teal cross
+(1,2) BD   : black diamond
+(1,3) PO   : pink oval
+(1,4) YS   : yellow spiral
+(1,5) SC   : shining cone
+(1,6) SC   : strange cresent
+(1,7) MC:X : magenta circle
+(2,0) SD   : silver diamond
+(2,1) ST   : strange triangle
+(2,2) TC   : teal circle
+(2,3) SH   : shining hexagon
+(2,4) GC   : gray cresent
+(2,5) CC   : cyan cresent
+(2,6) MA   : magenta arrow
+(2,7) ST:X : shining triangle
+(3,0) WL   : white line
+(3,1) GB   : gold box
+(3,2) SC:W : strange cross
+(3,3) VD:W : violet dot
+(3,4) YA:W : yellow arrow
+(3,5) WT:W : white triangle
+(3,6) WT   : weird triangle
+(3,7) WS:X : weird star
+(4,0) RR   : red rhombus
+(4,1) BC   : brown cross
+(4,2) PS   : pink star
+(4,3) SR   : silver rhombus
+(4,4) BD   : blue dot
+(4,5) WC:D : white cross
+(4,6) CH:D : cyan heart
+(4,7) BS:X : black square
+(5,0) GR   : green rhombus
+(5,1) GL   : gold line
+(5,2) YB   : yellow box
+(5,3) GB   : green box
+(5,4) SO   : strange oval
+(5,5) RH:D : red heart
+(5,6) SD:D : shining diamond
+(5,7) WS:X : weird square
+(6,0) ST   : silver triangle
+(6,1) SA   : strange arrow
+(6,2) GH   : gray hexagon
+(6,3) TD   : teal dot
+(6,4) WH   : weird heart
+(6,5) WD:D : weird dot
+(6,6) GD:D : gray diamond
+(6,7) GB:X : gray box
+(7,0) RP   : red pentagon
+(7,1) PC   : purple cresent
+(7,2) SC   : silver cresent
+(7,3) SC   : shining cross
+(7,4) SS   : silver star
+(7,5) TO:D : teal octagon
+(7,6) BR:D : brown rhombus
+(7,7) OO:X : orange octagon
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go east, final score: 0
+Infos lost: True, won: False
+Walled rooms: [((3, 2), (2, 2)), ((2, 2), (3, 2)), ((3, 3), (2, 3)), ((2, 3), (3, 3)), ((3, 3), (2, 3)), ((2, 3), (3, 3)), ((3, 4), (2, 4)), ((2, 4), (3, 4)), ((3, 4), (2, 4)), ((2, 4), (3, 4)), ((3, 4), (2, 4)), ((2, 4), (3, 4)), ((3, 5), (2, 5)), ((2, 5), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (2, 5)), ((2, 5), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5))]
+Wall between cyan triangle and turquoise arrow
+Wall between red line and blue oval
+Wall between orange diamond and cyan triangle
+Wall between silver octagon and red line
+Wall between yellow heart and blue box
+Wall between gray pentagon and green heart
+Wall between shining octagon and yellow heart
+Wall between shining octagon and yellow heart
+Wall between purple rectangle and gray pentagon
+Wall between purple rectangle and gray pentagon
+Wall between violet rectangle and white heart
+Wall between teal arrow and blue cresent
+Connections: 106, Failed connections: 106
+Num walls: 12
+{frozenset({3, 4}), frozenset({2, 3}), frozenset({4, 5}), frozenset({3}), frozenset({3, 5})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| BR   |===| MS   |===|SS:G  |===| BD   |===| YA   |===| WC   |===| CR   |===|SS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| RD   |===| SC   |===| GH   |===| SO   |===| GH   |===| WP   |===| SR   |===|GO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| TA   |===| BO   |===| CT   |===| RL   |===| OD   |===| SO   |===| BD   |===|RO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |                                                      |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| BB   |===| GH   |===|YH:W  |===|GP:W  |===|SO:W  |   |PR:W  |===| TR   |===|PO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| OA   |===| TH   |===| WH   |===| BC   |===| VR   |   |TA:W  |===| GS   |===|GR:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| PP   |===| PH   |===| PD   |===| SS   |===| SH   |===|PR:D  |===|RH:D  |===|BD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| TD   |===| ST   |===| VC   |===| OH   |===| RH   |===|SL:D  |===|MO:D  |===|MR:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+|SH:A  |===| GC   |===| WD   |===| BC   |===| CC   |===|OH:D  |===|GR:D  |===|GL:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) BR   : black rhombus
+(0,1) MS   : magenta star
+(0,2) SS:G : silver spiral
+(0,3) BD   : brown diamond
+(0,4) YA   : yellow arrow
+(0,5) WC   : white cross
+(0,6) CR   : cyan rectangle
+(0,7) SS:A : silver square
+(1,0) RD   : red dot
+(1,1) SC   : shining cresent
+(1,2) GH   : gold hexagon
+(1,3) SO   : shining oval
+(1,4) GH   : gray hexagon
+(1,5) WP   : weird pentagon
+(1,6) SR   : strange rhombus
+(1,7) GO:X : gray octagon
+(2,0) TA   : turquoise arrow
+(2,1) BO   : blue oval
+(2,2) CT   : cyan triangle
+(2,3) RL   : red line
+(2,4) OD   : orange diamond
+(2,5) SO   : silver octagon
+(2,6) BD   : brown dot
+(2,7) RO:X : red oval
+(3,0) BB   : blue box
+(3,1) GH   : green heart
+(3,2) YH:W : yellow heart
+(3,3) GP:W : gray pentagon
+(3,4) SO:W : shining octagon
+(3,5) PR:W : purple rectangle
+(3,6) TR   : teal rectangle
+(3,7) PO:X : pink octagon
+(4,0) OA   : orange arrow
+(4,1) TH   : teal heart
+(4,2) WH   : white heart
+(4,3) BC   : blue cresent
+(4,4) VR   : violet rectangle
+(4,5) TA:W : teal arrow
+(4,6) GS   : green square
+(4,7) GR:X : gold rhombus
+(5,0) PP   : pink pentagon
+(5,1) PH   : purple hexagon
+(5,2) PD   : purple dot
+(5,3) SS   : strange square
+(5,4) SH   : silver heart
+(5,5) PR:D : pink rhombus
+(5,6) RH:D : red hexagon
+(5,7) BD:X : blue diamond
+(6,0) TD   : teal diamond
+(6,1) ST   : shining triangle
+(6,2) VC   : violet circle
+(6,3) OH   : orange hexagon
+(6,4) RH   : red heart
+(6,5) SL:D : strange line
+(6,6) MO:D : magenta octagon
+(6,7) MR:X : magenta rectangle
+(7,0) SH   : strange hexagon
+(7,1) GC   : green cross
+(7,2) WD   : white dot
+(7,3) BC   : blue circle
+(7,4) CC   : cyan cone
+(7,5) OH:D : orange heart
+(7,6) GR:D : gold rectangle
+(7,7) GL:X : green line
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go west, final score: 0
+Infos lost: True, won: False
+Walled rooms: [((4, 2), (3, 2)), ((3, 2), (4, 2)), ((4, 3), (3, 3)), ((3, 3), (4, 3)), ((4, 3), (3, 3)), ((3, 3), (4, 3)), ((4, 4), (3, 4)), ((3, 4), (4, 4)), ((4, 4), (3, 4)), ((3, 4), (4, 4)), ((4, 4), (3, 4)), ((3, 4), (4, 4)), ((4, 5), (3, 5)), ((3, 5), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((4, 5), (3, 5)), ((3, 5), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5))]
+Wall between pink dot and gold oval
+Wall between turquoise pentagon and pink octagon
+Wall between cyan line and gold heart
+Wall between silver rhombus and pink star
+Wall between purple cross and cyan line
+Wall between purple cross and cyan line
+Wall between cyan oval and silver rhombus
+Wall between cyan oval and silver rhombus
+Wall between purple circle and purple rhombus
+Wall between white cresent and teal oval
+Wall between pink pentagon and purple circle
+Wall between pink pentagon and purple circle
+Wall between purple dot and white cresent
+Wall between purple dot and white cresent
+Connections: 105, Failed connections: 105
+Num walls: 14
+{frozenset({3, 4}), frozenset({4, 5}), frozenset({2, 5}), frozenset({2, 4}), frozenset({3, 5}), frozenset({4})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| GO   |===| SC   |===| SC   |===| PR   |===| YD   |===|BS:G  |===| CH   |===|GS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SO   |===| ML   |===| GD   |===| PO   |===| WC   |===| SR   |===| TR   |===|BO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SH   |===| YS   |===| GO   |===| PO   |===| PD   |   |TP:W  |===| PB   |===|PR:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GH   |===| PS   |===| CL   |===| SR   |===| PC   |   |CO:W  |===| OD   |===|BD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |                                                      |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| PR   |===| TO   |===|PC:W  |===|WC:W  |===|PP:W  |   |PD:W  |===| BC   |===|SC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| VR   |===| GC   |===| MC   |===| WH   |===| MR   |===|YT:D  |===|YR:D  |===|ST:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GL   |===| BD   |===| WD   |===| PT   |===| RD   |===|GC:D  |===|TD:D  |===|YH:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SL   |===| GA   |===|SS:A  |===| MT   |===| TT   |===|OS:D  |===|GC:D  |===|GC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) GO   : gold octagon
+(0,1) SC   : silver cross
+(0,2) SC   : silver circle
+(0,3) PR   : pink rectangle
+(0,4) YD   : yellow dot
+(0,5) BS:G : blue spiral
+(0,6) CH   : cyan hexagon
+(0,7) GS:X : gray star
+(1,0) SO   : strange octagon
+(1,1) ML   : magenta line
+(1,2) GD   : gray dot
+(1,3) PO   : pink oval
+(1,4) WC   : weird cone
+(1,5) SR   : shining rhombus
+(1,6) TR   : turquoise rectangle
+(1,7) BO:X : blue octagon
+(2,0) SH   : strange hexagon
+(2,1) YS   : yellow spiral
+(2,2) GO   : gold oval
+(2,3) PO   : pink octagon
+(2,4) PD   : pink dot
+(2,5) TP:W : turquoise pentagon
+(2,6) PB   : pink box
+(2,7) PR:A : purple rectangle
+(3,0) GH   : gold heart
+(3,1) PS   : pink star
+(3,2) CL   : cyan line
+(3,3) SR   : silver rhombus
+(3,4) PC   : purple cross
+(3,5) CO:W : cyan oval
+(3,6) OD   : orange dot
+(3,7) BD:X : blue dot
+(4,0) PR   : purple rhombus
+(4,1) TO   : teal oval
+(4,2) PC:W : purple circle
+(4,3) WC:W : white cresent
+(4,4) PP:W : pink pentagon
+(4,5) PD:W : purple dot
+(4,6) BC   : blue cross
+(4,7) SC:X : shining circle
+(5,0) VR   : violet rectangle
+(5,1) GC   : gray cresent
+(5,2) MC   : magenta cone
+(5,3) WH   : white heart
+(5,4) MR   : magenta rectangle
+(5,5) YT:D : yellow triangle
+(5,6) YR:D : yellow rectangle
+(5,7) ST:X : shining triangle
+(6,0) GL   : gray line
+(6,1) BD   : black diamond
+(6,2) WD   : white diamond
+(6,3) PT   : purple triangle
+(6,4) RD   : red dot
+(6,5) GC:D : gold cresent
+(6,6) TD:D : turquoise diamond
+(6,7) YH:X : yellow heart
+(7,0) SL   : shining line
+(7,1) GA   : green arrow
+(7,2) SS   : silver square
+(7,3) MT   : magenta triangle
+(7,4) TT   : turquoise triangle
+(7,5) OS:D : orange square
+(7,6) GC:D : gray cone
+(7,7) GC:X : green cross
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go south, final score: 0
+Infos lost: True, won: False
+Walled rooms: [((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (2, 2)), ((2, 2), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (2, 2)), ((2, 2), (2, 3)), ((3, 3), (3, 2)), ((3, 2), (3, 3)), ((3, 3), (3, 2)), ((3, 2), (3, 3)), ((3, 3), (3, 2)), ((3, 2), (3, 3)), ((4, 3), (4, 2)), ((4, 2), (4, 3)), ((4, 3), (4, 2)), ((4, 2), (4, 3)), ((5, 3), (5, 2)), ((5, 2), (5, 3))]
+Wall between weird hexagon and gold oval
+Wall between shining rectangle and pink triangle
+Wall between strange rhombus and weird hexagon
+Wall between violet star and black dot
+Wall between weird pentagon and blue rectangle
+Wall between weird pentagon and blue rectangle
+Wall between silver line and blue rectangle
+Wall between pink box and weird pentagon
+Wall between silver triangle and magenta diamond
+Wall between blue triangle and weird rhombus
+Wall between teal triangle and silver pentagon
+Wall between violet dot and shining spiral
+Wall between green dot and orange box
+Wall between green box and blue cone
+Connections: 105, Failed connections: 105
+Num walls: 14
+{frozenset({3, 4}), frozenset({2, 3}), frozenset({2, 5}), frozenset({3}), frozenset({2, 4}), frozenset({3, 5})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| GS   |===| BA   |===| VO   |===| WD   |===| PO   |===|BR:G  |===| BO   |===|MS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SC   |===| GO   |===| PT   |===| WH   |===| SR   |===| SR   |===| OO   |===|PC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |                                           |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| BD   |===| BR   |===| VS   |   |WP:W  |===|SL:W  |===|PB:W  |===| BR   |===|WC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| MD   |===| WR   |===| ST   |   |BT:W  |===| TL   |===| SO   |===| PS   |===|RS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SP   |===| SS   |===| TT   |   |VD:W  |===| BL   |===| OL   |===| WD   |===|VB:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| OB   |===| BC   |===| GD   |   |GB:W  |===| PR   |===| CO   |===| BR   |===|GC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| WR   |===| PO   |===| TS   |===| TA   |===| WL   |===|GC:D  |===|GL:D  |===|VL:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| YO   |===| BS   |===|GT:A  |===| WT   |===| TC   |===|GR:D  |===|SO:D  |===|TO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) GS   : green star
+(0,1) BA   : black arrow
+(0,2) VO   : violet octagon
+(0,3) WD   : white diamond
+(0,4) PO   : pink oval
+(0,5) BR:G : brown rhombus
+(0,6) BO   : brown oval
+(0,7) MS:X : magenta square
+(1,0) SC   : strange cresent
+(1,1) GO   : gold oval
+(1,2) PT   : pink triangle
+(1,3) WH   : weird hexagon
+(1,4) SR   : shining rectangle
+(1,5) SR   : strange rhombus
+(1,6) OO   : orange octagon
+(1,7) PC:X : purple circle
+(2,0) BD   : black dot
+(2,1) BR   : blue rectangle
+(2,2) VS   : violet star
+(2,3) WP:W : weird pentagon
+(2,4) SL:W : silver line
+(2,5) PB:W : pink box
+(2,6) BR   : black rectangle
+(2,7) WC:A : white cone
+(3,0) MD   : magenta diamond
+(3,1) WR   : weird rhombus
+(3,2) ST   : silver triangle
+(3,3) BT:W : blue triangle
+(3,4) TL   : teal line
+(3,5) SO   : strange octagon
+(3,6) PS   : pink spiral
+(3,7) RS:X : red star
+(4,0) SP   : silver pentagon
+(4,1) SS   : shining spiral
+(4,2) TT   : teal triangle
+(4,3) VD:W : violet dot
+(4,4) BL   : brown line
+(4,5) OL   : orange line
+(4,6) WD   : weird dot
+(4,7) VB:X : violet box
+(5,0) OB   : orange box
+(5,1) BC   : blue cone
+(5,2) GD   : green dot
+(5,3) GB:W : green box
+(5,4) PR   : purple rectangle
+(5,5) CO   : cyan oval
+(5,6) BR   : blue rhombus
+(5,7) GC:X : gray circle
+(6,0) WR   : white rhombus
+(6,1) PO   : pink octagon
+(6,2) TS   : turquoise square
+(6,3) TA   : turquoise arrow
+(6,4) WL   : weird line
+(6,5) GC:D : gold cross
+(6,6) GL:D : gray line
+(6,7) VL:X : violet line
+(7,0) YO   : yellow octagon
+(7,1) BS   : brown square
+(7,2) GT   : gray triangle
+(7,3) WT   : weird triangle
+(7,4) TC   : turquoise cresent
+(7,5) GR:D : gold rectangle
+(7,6) SO:D : strange oval
+(7,7) TO:X : turquoise oval
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go south, final score: 0
+Infos lost: True, won: False
+Walled rooms: [((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (5, 2)), ((5, 2), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (5, 2)), ((5, 2), (6, 2)), ((6, 3), (5, 3)), ((5, 3), (6, 3)), ((6, 3), (5, 3)), ((5, 3), (6, 3)), ((6, 3), (5, 3)), ((5, 3), (6, 3)), ((6, 4), (5, 4)), ((5, 4), (6, 4))]
+Wall between weird cone and weird line
+Wall between magenta rectangle and silver line
+Wall between orange rectangle and brown cresent
+Wall between purple rhombus and magenta rhombus
+Wall between blue pentagon and shining rectangle
+Wall between purple cross and black octagon
+Wall between magenta star and violet star
+Wall between cyan octagon and brown diamond
+Wall between cyan octagon and brown diamond
+Wall between violet rectangle and brown diamond
+Wall between cyan rhombus and cyan octagon
+Wall between shining box and teal triangle
+Wall between weird arrow and orange rhombus
+Wall between weird arrow and orange rhombus
+Wall between yellow octagon and orange rhombus
+Wall between black cone and weird arrow
+Connections: 104, Failed connections: 104
+Num walls: 16
+{frozenset({2}), frozenset({4, 6}), frozenset({2, 3}), frozenset({2, 6}), frozenset({3, 6}), frozenset({2, 5}), frozenset({2, 4})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| GS   |===| SO   |===| BT   |===| WB   |===| OS   |===| GB   |===|SO:G  |===|BS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| BC   |===| BO   |===| YP   |===| BO   |===| WR   |===| RS   |===| WL   |===|GD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SL   |===| WC   |   |MR:W  |===| GL   |===| WS   |===| ST   |===| BC   |===|YD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| MR   |===| OR   |   |PR:W  |===| SC   |===| BS   |===| BB   |===| SR   |===|RC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| BO   |===| BP   |   |PC:W  |===| GO   |===| SS   |===| TH   |===| VS   |===|GO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| BD   |===| MS   |   |CO:W  |===| VR   |===| CR   |===| BH   |===| TT   |===|GS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |                                           |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| OR   |===| SB   |   |WA:W  |===|YO:W  |===|BC:W  |===| CD   |===| MC   |===|PO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| YR   |===| PO   |===|RO:A  |===| BH   |===|GH:D  |===|VO:D  |===|BL:D  |===|TH:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) GS   : gray star
+(0,1) SO   : strange octagon
+(0,2) BT   : brown triangle
+(0,3) WB   : weird box
+(0,4) OS   : orange square
+(0,5) GB   : gold box
+(0,6) SO:G : shining octagon
+(0,7) BS:X : blue square
+(1,0) BC   : brown cone
+(1,1) BO   : brown oval
+(1,2) YP   : yellow pentagon
+(1,3) BO   : blue oval
+(1,4) WR   : white rhombus
+(1,5) RS   : red star
+(1,6) WL   : weird line
+(1,7) GD:X : green diamond
+(2,0) SL   : silver line
+(2,1) WC   : weird cone
+(2,2) MR:W : magenta rectangle
+(2,3) GL   : green line
+(2,4) WS   : white spiral
+(2,5) ST   : silver triangle
+(2,6) BC   : brown cresent
+(2,7) YD:A : yellow diamond
+(3,0) MR   : magenta rhombus
+(3,1) OR   : orange rectangle
+(3,2) PR:W : purple rhombus
+(3,3) SC   : silver circle
+(3,4) BS   : brown square
+(3,5) BB   : brown box
+(3,6) SR   : shining rectangle
+(3,7) RC:X : red cone
+(4,0) BO   : black octagon
+(4,1) BP   : blue pentagon
+(4,2) PC:W : purple cross
+(4,3) GO   : gray octagon
+(4,4) SS   : shining spiral
+(4,5) TH   : turquoise heart
+(4,6) VS   : violet star
+(4,7) GO:X : gold octagon
+(5,0) BD   : brown diamond
+(5,1) MS   : magenta star
+(5,2) CO:W : cyan octagon
+(5,3) VR   : violet rectangle
+(5,4) CR   : cyan rhombus
+(5,5) BH   : black hexagon
+(5,6) TT   : teal triangle
+(5,7) GS:X : gold square
+(6,0) OR   : orange rhombus
+(6,1) SB   : shining box
+(6,2) WA:W : weird arrow
+(6,3) YO:W : yellow octagon
+(6,4) BC:W : black cone
+(6,5) CD   : cyan dot
+(6,6) MC   : magenta cresent
+(6,7) PO:X : purple oval
+(7,0) YR   : yellow rhombus
+(7,1) PO   : pink octagon
+(7,2) RO   : red oval
+(7,3) BH   : blue hexagon
+(7,4) GH:D : gray hexagon
+(7,5) VO:D : violet octagon
+(7,6) BL:D : blue line
+(7,7) TH:X : teal heart
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go south, final score: 0
+Infos lost: True, won: False
+(6, np.int64(3))
+[((2, 2), (2, 5)), ((2, 2), (6, 2)), ((2, 5), (2, 2)), ((2, 5), (6, 5)), ((6, 2), (2, 2)), ((6, 2), (6, 5)), ((6, 5), (2, 5)), ((6, 5), (6, 2))]
+Walled rooms: [((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((6, 5), (6, 4)), ((6, 4), (6, 5)), ((6, 5), (6, 4)), ((6, 4), (6, 5)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((2, 5), (2, 4)), ((2, 4), (2, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((3, 5), (3, 4)), ((3, 4), (3, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((4, 5), (4, 4)), ((4, 4), (4, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((5, 5), (5, 4)), ((5, 4), (5, 5)), ((6, 5), (6, 4)), ((6, 4), (6, 5)), ((6, 5), (6, 4)), ((6, 4), (6, 5))]
+Wall between yellow spiral and blue cross
+Wall between magenta octagon and strange oval
+Wall between white rectangle and yellow spiral
+Wall between gray cone and magenta octagon
+Wall between gray rectangle and white rhombus
+Wall between black cresent and gray spiral
+Wall between black cresent and gray spiral
+Wall between teal arrow and gray spiral
+Wall between green oval and black cresent
+Wall between green oval and black cresent
+Wall between white dot and teal arrow
+Wall between white dot and teal arrow
+Wall between pink hexagon and magenta star
+Wall between gray rhombus and shining cresent
+Wall between white pentagon and gray rhombus
+Wall between red box and silver rhombus
+Wall between magenta box and turquoise heart
+Wall between yellow cross and shining spiral
+Wall between teal dot and yellow cross
+Wall between black square and pink star
+Wall between teal star and brown line
+Wall between gold triangle and turquoise rectangle
+Wall between weird octagon and gold triangle
+Wall between weird triangle and cyan oval
+Wall between black spiral and gray diamond
+Wall between white star and green square
+Wall between weird cross and white star
+Wall between black dot and silver diamond
+Connections: 98, Failed connections: 98
+Num walls: 28
+{frozenset({2}), frozenset({2, 3}), frozenset({2, 6}), frozenset({4, 5}), frozenset({2, 5}), frozenset({2, 4}), frozenset({5, 6}), frozenset({3, 5}), frozenset({5})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| SB   |===| MC   |===|SC:G  |===| SS   |===| YO   |===| OR   |===| BC   |===|WC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| BC   |===| SO   |===| YS   |===| MO   |===| WR   |===| GC   |===| WR   |===|SD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |                                                      |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GS   |===| GR   |   |BC:W  |===|TA:W  |===|GO:W  |   |WD:W  |===| MS   |===|RR:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SC   |===| PH   |   |GR:W  |===| SR   |===| WP   |   |RB:W  |===| TH   |===|TL:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SS   |===| MB   |   |YC:W  |===| PS   |===| TD   |   |BS:W  |===| BL   |===|GS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| TR   |===| TS   |   |GT:W  |===| CO   |===| WO   |   |WT:W  |===| GD   |===|BB:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GS   |===| BS   |   |WS:W  |===| SD   |===| WC   |   |BD:W  |===| TC   |===|SB:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| WC   |===| GR   |===| BR   |===|BS:A  |===| TR   |===|WL:D  |===|SS:D  |===|VO:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) SB   : shining box
+(0,1) MC   : magenta circle
+(0,2) SC:G : shining circle
+(0,3) SS   : strange spiral
+(0,4) YO   : yellow oval
+(0,5) OR   : orange rhombus
+(0,6) BC   : blue cresent
+(0,7) WC:X : white cross
+(1,0) BC   : blue cross
+(1,1) SO   : strange oval
+(1,2) YS   : yellow spiral
+(1,3) MO   : magenta octagon
+(1,4) WR   : white rectangle
+(1,5) GC   : gray cone
+(1,6) WR   : white rhombus
+(1,7) SD:X : shining dot
+(2,0) GS   : gray spiral
+(2,1) GR   : gray rectangle
+(2,2) BC:W : black cresent
+(2,3) TA:W : teal arrow
+(2,4) GO:W : green oval
+(2,5) WD:W : white dot
+(2,6) MS   : magenta star
+(2,7) RR:X : red rhombus
+(3,0) SC   : shining cresent
+(3,1) PH   : pink hexagon
+(3,2) GR:W : gray rhombus
+(3,3) SR   : silver rhombus
+(3,4) WP   : white pentagon
+(3,5) RB:W : red box
+(3,6) TH   : turquoise heart
+(3,7) TL:A : turquoise line
+(4,0) SS   : shining spiral
+(4,1) MB   : magenta box
+(4,2) YC:W : yellow cross
+(4,3) PS   : pink star
+(4,4) TD   : teal dot
+(4,5) BS:W : black square
+(4,6) BL   : brown line
+(4,7) GS:X : gold star
+(5,0) TR   : turquoise rectangle
+(5,1) TS   : teal star
+(5,2) GT:W : gold triangle
+(5,3) CO   : cyan oval
+(5,4) WO   : weird octagon
+(5,5) WT:W : weird triangle
+(5,6) GD   : gray diamond
+(5,7) BB:X : black box
+(6,0) GS   : green square
+(6,1) BS   : black spiral
+(6,2) WS:W : white star
+(6,3) SD   : silver diamond
+(6,4) WC   : weird cross
+(6,5) BD:W : black dot
+(6,6) TC   : teal cresent
+(6,7) SB:X : silver box
+(7,0) WC   : weird cresent
+(7,1) GR   : gold rectangle
+(7,2) BR   : blue rhombus
+(7,3) BS   : brown star
+(7,4) TR   : teal rectangle
+(7,5) WL:D : white line
+(7,6) SS:D : silver square
+(7,7) VO:X : violet oval
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go south, final score: 0
+Infos lost: True, won: False
+(6, np.int64(3))
+[((2, 2), (2, 4)), ((2, 2), (6, 2)), ((2, 4), (2, 2)), ((2, 4), (6, 4)), ((6, 2), (2, 2)), ((6, 2), (6, 4)), ((6, 4), (2, 4)), ((6, 4), (6, 2))]
+Walled rooms: [((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((6, 4), (6, 3)), ((6, 3), (6, 4)), ((6, 4), (6, 3)), ((6, 3), (6, 4)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((2, 4), (2, 3)), ((2, 3), (2, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((3, 4), (3, 3)), ((3, 3), (3, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((4, 4), (4, 3)), ((4, 3), (4, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((5, 4), (5, 3)), ((5, 3), (5, 4)), ((6, 4), (6, 3)), ((6, 3), (6, 4)), ((6, 4), (6, 3)), ((6, 3), (6, 4))]
+Wall between gold arrow and magenta heart
+Wall between strange arrow and brown cross
+Wall between cyan rectangle and gold arrow
+Wall between blue line and silver triangle
+Wall between gray line and white cone
+Wall between gray line and white cone
+Wall between teal octagon and white cone
+Wall between teal octagon and white cone
+Wall between gray hexagon and gray line
+Wall between gray hexagon and gray line
+Wall between black oval and red heart
+Wall between strange dot and magenta diamond
+Wall between weird arrow and magenta diamond
+Wall between gold hexagon and strange dot
+Wall between orange pentagon and silver rectangle
+Wall between black square and weird spiral
+Wall between green box and weird spiral
+Wall between pink heart and black square
+Wall between black star and pink pentagon
+Wall between gold octagon and gray cresent
+Wall between black spiral and gray cresent
+Wall between silver circle and gold octagon
+Wall between yellow arrow and green hexagon
+Wall between purple diamond and strange spiral
+Wall between green heart and strange spiral
+Wall between strange triangle and purple diamond
+Connections: 99, Failed connections: 99
+Num walls: 26
+{frozenset({3, 4}), frozenset({2}), frozenset({4, 6}), frozenset({2, 3}), frozenset({2, 6}), frozenset({4, 5}), frozenset({2, 5}), frozenset({2, 4}), frozenset({4})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________         
+| SR   |===| TS   |===| VC   |===|OR:G  |===| BC   |===| GS   |===| VD   |===|PD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| MH   |===| BC   |===| GA   |===| SA   |===| CR   |===| YH   |===| ST   |===|WS:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |                                           |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| WC   |===| BL   |   |GL:W  |===|TO:W  |   |GH:W  |===| BC   |===| RH   |===|TC:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| MD   |===| BO   |   |SD:W  |===| WA   |   |GH:W  |===| BD   |===| SR   |===|OH:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| WS   |===| OP   |   |BS:W  |===| GB   |   |PH:W  |===| SH   |===| PP   |===|OD:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GC   |===| BS   |   |GO:W  |===| BS   |   |SC:W  |===| WS   |===| GH   |===|BA:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| SS   |===| YA   |   |PD:W  |===| GH   |   |ST:W  |===| TO   |===| PS   |===|RL:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+   |          |          |          |          |          |          |          |             
+________   ________   ________   ________   ________   ________   ________   ________         
+| GR   |===| PR   |===|RR:A  |===| WA   |===|VP:D  |===|YS:D  |===|SH:D  |===|GP:X  |         
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|         
+                                                                                              
+
+Room Legend:
+(0,0) SR   : shining rectangle
+(0,1) TS   : teal square
+(0,2) VC   : violet circle
+(0,3) OR:G : orange rhombus
+(0,4) BC   : black circle
+(0,5) GS   : gold square
+(0,6) VD   : violet dot
+(0,7) PD:X : pink dot
+(1,0) MH   : magenta heart
+(1,1) BC   : brown cross
+(1,2) GA   : gold arrow
+(1,3) SA   : strange arrow
+(1,4) CR   : cyan rectangle
+(1,5) YH   : yellow heart
+(1,6) ST   : silver triangle
+(1,7) WS:X : weird star
+(2,0) WC   : white cone
+(2,1) BL   : blue line
+(2,2) GL:W : gray line
+(2,3) TO:W : teal octagon
+(2,4) GH:W : gray hexagon
+(2,5) BC   : blue cross
+(2,6) RH   : red heart
+(2,7) TC:A : turquoise cresent
+(3,0) MD   : magenta diamond
+(3,1) BO   : black oval
+(3,2) SD:W : strange dot
+(3,3) WA   : weird arrow
+(3,4) GH:W : gold hexagon
+(3,5) BD   : blue dot
+(3,6) SR   : silver rectangle
+(3,7) OH:X : orange heart
+(4,0) WS   : weird spiral
+(4,1) OP   : orange pentagon
+(4,2) BS:W : black square
+(4,3) GB   : green box
+(4,4) PH:W : pink heart
+(4,5) SH   : silver hexagon
+(4,6) PP   : pink pentagon
+(4,7) OD:X : orange dot
+(5,0) GC   : gray cresent
+(5,1) BS   : black star
+(5,2) GO:W : gold octagon
+(5,3) BS   : black spiral
+(5,4) SC:W : silver circle
+(5,5) WS   : weird square
+(5,6) GH   : green hexagon
+(5,7) BA:X : black arrow
+(6,0) SS   : strange spiral
+(6,1) YA   : yellow arrow
+(6,2) PD:W : purple diamond
+(6,3) GH   : green heart
+(6,4) ST:W : strange triangle
+(6,5) TO   : teal oval
+(6,6) PS   : pink star
+(6,7) RL:X : red line
+(7,0) GR   : green rhombus
+(7,1) PR   : pink rhombus
+(7,2) RR   : red rhombus
+(7,3) WA   : white arrow
+(7,4) VP:D : violet pentagon
+(7,5) YS:D : yellow spiral
+(7,6) SH:D : shining heart
+(7,7) GP:X : gray pentagon
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go west, final score: 0
+Infos lost: True, won: False
+(6, np.int64(5))
+[((2, 2), (2, 8)), ((2, 2), (6, 2)), ((2, 8), (2, 2)), ((2, 8), (6, 8)), ((6, 2), (2, 2)), ((6, 2), (6, 8)), ((6, 8), (2, 8)), ((6, 8), (6, 2))]
+Walled rooms: [((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 4), (1, 4)), ((1, 4), (2, 4)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 5), (1, 5)), ((1, 5), (2, 5)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 6), (1, 6)), ((1, 6), (2, 6)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 7), (1, 7)), ((1, 7), (2, 7)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((6, 8), (6, 7)), ((6, 7), (6, 8)), ((6, 8), (6, 7)), ((6, 7), (6, 8)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((2, 2), (1, 2)), ((1, 2), (2, 2)), ((2, 2), (2, 1)), ((2, 1), (2, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((3, 2), (3, 1)), ((3, 1), (3, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((4, 2), (4, 1)), ((4, 1), (4, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((5, 2), (5, 1)), ((5, 1), (5, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((6, 2), (6, 1)), ((6, 1), (6, 2)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (1, 8)), ((1, 8), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((2, 8), (2, 7)), ((2, 7), (2, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((3, 8), (3, 7)), ((3, 7), (3, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((4, 8), (4, 7)), ((4, 7), (4, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((5, 8), (5, 7)), ((5, 7), (5, 8)), ((6, 8), (6, 7)), ((6, 7), (6, 8)), ((6, 8), (6, 7)), ((6, 7), (6, 8))]
+Wall between yellow circle and violet diamond
+Wall between gray cone and cyan arrow
+Wall between purple rhombus and yellow circle
+Wall between shining box and gray cone
+Wall between silver star and purple rhombus
+Wall between cyan hexagon and shining box
+Wall between blue star and silver star
+Wall between yellow square and blue star
+Wall between turquoise line and turquoise octagon
+Wall between turquoise line and turquoise octagon
+Wall between brown diamond and turquoise octagon
+Wall between shining diamond and turquoise line
+Wall between turquoise cone and brown diamond
+Wall between cyan oval and shining diamond
+Wall between strange triangle and turquoise cone
+Wall between strange triangle and turquoise cone
+Wall between shining hexagon and cyan oval
+Wall between shining hexagon and cyan oval
+Wall between yellow line and shining hexagon
+Wall between black arrow and white oval
+Wall between turquoise cresent and gold diamond
+Wall between black cross and strange spiral
+Wall between black square and black cross
+Wall between orange box and magenta cross
+Wall between cyan triangle and strange box
+Wall between silver circle and weird rhombus
+Wall between weird arrow and silver circle
+Wall between gray heart and brown box
+Wall between strange square and magenta triangle
+Wall between purple circle and gray star
+Wall between pink hexagon and purple circle
+Wall between shining cone and orange diamond
+Wall between gold cone and green star
+Wall between red cone and yellow heart
+Connections: 163, Failed connections: 163
+Num walls: 34
+{frozenset({2}), frozenset({8, 2}), frozenset({2, 3}), frozenset({2, 6}), frozenset({2, 5}), frozenset({8, 3}), frozenset({2, 4}), frozenset({8, 6}), frozenset({8, 5}), frozenset({2, 7}), frozenset({8, 4})}
+
+Map Layout:
+Room Types: A=Agent, G=Goal, X=Death, D=Dying, W=Wall
+Connections: | (north-south), - (east-west)
+Format: [Type][Room Abbreviation] (e.g., 'ARC' = Agent in Red Circle)
+
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| OR   |===| CR   |===| MR   |===| WB   |===| TD   |===| BB   |===| SS   |===| SD   |===|TC:G  |===|WH:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| VD   |===| CA   |===| YC   |===| GC   |===| PR   |===| SB   |===| SS   |===| CH   |===| BS   |===|SD:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |                                                                                       |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| TO   |===| YS   |   |TL:W  |===|BD:W  |===|SD:W  |===|TC:W  |===|CO:W  |===|ST:W  |   |SH:W  |===|BR:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| WO   |===| YL   |   |BA:W  |===| BD   |===| RR   |===| GD   |===| SS   |===| TC   |   |BC:W  |===|VO:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| MC   |===| BS   |   |OB:W  |===| YS   |===| BT   |===| SB   |===| WR   |===| CT   |   |SC:W  |===|PD:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| BB   |===| WA   |   |GH:W  |===| VD   |===| BS   |===| MT   |===| GS   |===| SS   |   |PC:W  |===|SO:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| OD   |===| PH   |   |SC:W  |===| WC   |===| BO   |===| GS   |===| YH   |===| GC   |   |RC:W  |===|BH:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| GL   |===| OC   |===| WL   |===| BH   |===| BD   |===| GB   |===| OP   |===| CO   |===|WT:D  |===|GO:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| BC   |===| OC   |===| PR   |===| OS   |===| BS   |===| MA   |===| RS   |===| TC   |===|YD:D  |===|WO:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+   |          |          |          |          |          |          |          |          |          |               
+________   ________   ________   ________   ________   ________   ________   ________   ________   ________           
+| PC   |===| RO   |===|TB:A  |===| OH   |===| PT   |===| OR   |===| GP   |===| TH   |===|YD:D  |===|GD:X  |           
+|______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|   |______|           
+                                                                                                                      
+
+Room Legend:
+(0,0) OR   : orange rhombus
+(0,1) CR   : cyan rhombus
+(0,2) MR   : magenta rhombus
+(0,3) WB   : weird box
+(0,4) TD   : teal diamond
+(0,5) BB   : black box
+(0,6) SS   : silver square
+(0,7) SD   : silver diamond
+(0,8) TC:G : teal cone
+(0,9) WH:X : white heart
+(1,0) VD   : violet diamond
+(1,1) CA   : cyan arrow
+(1,2) YC   : yellow circle
+(1,3) GC   : gray cone
+(1,4) PR   : purple rhombus
+(1,5) SB   : shining box
+(1,6) SS   : silver star
+(1,7) CH   : cyan hexagon
+(1,8) BS   : blue star
+(1,9) SD:X : strange dot
+(2,0) TO   : turquoise octagon
+(2,1) YS   : yellow square
+(2,2) TL:W : turquoise line
+(2,3) BD:W : brown diamond
+(2,4) SD:W : shining diamond
+(2,5) TC:W : turquoise cone
+(2,6) CO:W : cyan oval
+(2,7) ST:W : strange triangle
+(2,8) SH:W : shining hexagon
+(2,9) BR:A : brown rectangle
+(3,0) WO   : white oval
+(3,1) YL   : yellow line
+(3,2) BA:W : black arrow
+(3,3) BD   : blue diamond
+(3,4) RR   : red rhombus
+(3,5) GD   : gold diamond
+(3,6) SS   : strange spiral
+(3,7) TC   : turquoise cresent
+(3,8) BC:W : black cross
+(3,9) VO:X : violet oval
+(4,0) MC   : magenta cross
+(4,1) BS   : black square
+(4,2) OB:W : orange box
+(4,3) YS   : yellow spiral
+(4,4) BT   : black triangle
+(4,5) SB   : strange box
+(4,6) WR   : weird rhombus
+(4,7) CT   : cyan triangle
+(4,8) SC:W : silver circle
+(4,9) PD:X : pink dot
+(5,0) BB   : brown box
+(5,1) WA   : weird arrow
+(5,2) GH:W : gray heart
+(5,3) VD   : violet dot
+(5,4) BS   : black spiral
+(5,5) MT   : magenta triangle
+(5,6) GS   : gray star
+(5,7) SS   : strange square
+(5,8) PC:W : purple circle
+(5,9) SO:X : strange oval
+(6,0) OD   : orange diamond
+(6,1) PH   : pink hexagon
+(6,2) SC:W : shining cone
+(6,3) WC   : white cresent
+(6,4) BO   : blue oval
+(6,5) GS   : green star
+(6,6) YH   : yellow heart
+(6,7) GC   : gold cone
+(6,8) RC:W : red cone
+(6,9) BH:X : blue heart
+(7,0) GL   : gold line
+(7,1) OC   : orange cresent
+(7,2) WL   : white line
+(7,3) BH   : black hexagon
+(7,4) BD   : black dot
+(7,5) GB   : gold box
+(7,6) OP   : orange pentagon
+(7,7) CO   : cyan octagon
+(7,8) WT:D : white triangle
+(7,9) GO:X : gray octagon
+(8,0) BC   : black circle
+(8,1) OC   : orange cross
+(8,2) PR   : purple rectangle
+(8,3) OS   : orange spiral
+(8,4) BS   : brown star
+(8,5) MA   : magenta arrow
+(8,6) RS   : red star
+(8,7) TC   : teal cresent
+(8,8) YD:D : yellow dot
+(8,9) WO:X : white octagon
+(9,0) PC   : purple cresent
+(9,1) RO   : red octagon
+(9,2) TB   : turquoise box
+(9,3) OH   : orange heart
+(9,4) PT   : pink triangle
+(9,5) OR   : orange rectangle
+(9,6) GP   : green pentagon
+(9,7) TH   : teal hexagon
+(9,8) YD:D : yellow diamond
+(9,9) GD:X : gold dot
+Infos lost: False, won: True
+Done testing win conditions, last move: go north, final score: 1
+Done testing loss conditions last move: go south, final score: 0
+Infos lost: True, won: False
